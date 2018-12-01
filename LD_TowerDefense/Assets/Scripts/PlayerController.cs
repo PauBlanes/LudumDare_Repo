@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     //movement
     public float speed;
     private bool moving;
-
+    Vector3 dir = Vector3.zero;
 
     // Use this for initialization
     void Start () {
@@ -38,54 +38,74 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (moving)             
+             transform.position += dir * speed * Time.deltaTime;
+
+    }
+
     void Move()
     {
         //Rotations
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
         {
             transform.rotation = Quaternion.Euler(0, 0, 225);
+            dir.x = -1;
+            dir.y = 1;
             moving = true;
         }
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 135);
+            dir.x = 1;
+            dir.y = 1;
             moving = true;
         }
         else if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 180);
+            dir.x = 0;
+            dir.y = 1;
             moving = true;
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
             transform.rotation = Quaternion.Euler(0, 0, 315);
             moving = true;
+            dir.x = -1;
+            dir.y = -1;
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 45);
             moving = true;
+            dir.x = 1;
+            dir.y = -1;
         }
         else if (Input.GetKey(KeyCode.S))
         {
             transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 0);
             moving = true;
+            dir.x = 0;
+            dir.y = -1;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 270);
             moving = true;
+            dir.x = -1;
+            dir.y = 0;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 90);
             moving = true;
+            dir.x = 1;
+            dir.y = 0;
         }
         else
-            moving = false;
-
-        if (moving)
-            transform.position += -transform.up * speed * Time.deltaTime;
+            moving = false;        
 
     }
 
@@ -100,7 +120,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.tag == "Wall")
         {
-            
+              
         }
-    }
+    }    
 }
