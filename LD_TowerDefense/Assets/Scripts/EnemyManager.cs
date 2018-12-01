@@ -14,10 +14,10 @@ public class EnemyManager : MonoBehaviour {
 
     public Text GameOverText;
     //NO TOCAR
-    int enemiesXround=5;
-    float timeBetweenEnemies=1;
+    int enemiesXround=50;
+    float timeBetweenEnemies=0.2f;
     float timeBetweenRounds=5;
-    int enemyMultiplayer = 5;
+    int enemyMultiplayer = 35;
 
     float timeSpawn=0;
     float timeRest;
@@ -35,8 +35,25 @@ public class EnemyManager : MonoBehaviour {
             timeSpawn -= Time.deltaTime;
             if (timeSpawn <= 0)
             {
-                int aux = Random.Range(0, SpawnPoints.Length);
-                Instantiate(EnemyPrefabs[0], SpawnPoints[aux].transform.position, Quaternion.identity);
+                int aux = Random.Range(0, 100);
+
+                if(aux < 15)
+                {
+                    Instantiate(EnemyPrefabs[0], SpawnPoints[0].transform.position, Quaternion.identity);
+                }
+                else if (aux < 30)
+                {
+                    Instantiate(EnemyPrefabs[0], SpawnPoints[1].transform.position, Quaternion.identity);
+                }
+                else if (aux < 60)
+                {
+                    Instantiate(EnemyPrefabs[0], SpawnPoints[2].transform.position, Quaternion.identity);
+                }
+                else if (aux < 100)
+                {
+                    Instantiate(EnemyPrefabs[0], SpawnPoints[3].transform.position, Quaternion.identity);
+                }
+
                 enemiesXround--;
                 timeSpawn = timeBetweenEnemies;
             }

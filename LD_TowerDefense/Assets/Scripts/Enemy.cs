@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
 
     //VARS
-    GameObject Target;
+    public GameObject Target;
     public float Speed;
     public float Health;
     public float Attack;
@@ -24,15 +24,14 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Target = GameObject.FindGameObjectWithTag ( "Base" );
-        setDir();
+        //Target = GameObject.FindGameObjectWithTag ( "Base" );
+        //setDir();
        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(dir* Speed * Time.deltaTime);
-        setDir();
+        
         if (inRange == true)
         {
             wait-= Time.deltaTime;
@@ -41,6 +40,10 @@ public class Enemy : MonoBehaviour {
                 BaseSript.health -= Attack;
                 wait = attackCooldown;
             }
+        }
+        else
+        {
+            transform.Translate(dir * Speed * Time.deltaTime);
         }
 	}
 
@@ -67,7 +70,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void setDir() {
+    public void setDir() {
         targetPos = new Vector3(Target.transform.position.x, Target.transform.position.y, Target.transform.position.z);
         myPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 
