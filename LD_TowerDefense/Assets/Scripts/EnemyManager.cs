@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class EnemyManager : MonoBehaviour {
 
     public int Round=0;
 
+    public Text GameOverText;
     //NO TOCAR
     int enemiesXround=5;
     float timeBetweenEnemies=1;
@@ -51,4 +53,8 @@ public class EnemyManager : MonoBehaviour {
         }
         
 	}
+    public void GameOver()
+    {
+        GameOverText.gameObject.SetActive(true);
+    }
 }

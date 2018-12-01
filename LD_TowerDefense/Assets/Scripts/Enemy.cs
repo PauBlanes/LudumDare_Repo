@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour {
     public float Health;
     public float Attack;
     public Vector3 dir;
+
 
     Vector3 targetPos;
     Vector3 myPos;
@@ -48,6 +50,20 @@ public class Enemy : MonoBehaviour {
         {
             BaseSript = other.GetComponent<Base>();
             inRange = true;
+        }
+        else if (other.tag == "Bullet")
+        {
+            Destroy(other.gameObject);
+            Health--;
+
+            if (Health <= 0)
+                Destroy(this.gameObject);
+        }
+        else if (other.tag == "Player")
+        {
+            Destroy(other.gameObject);
+            GameObject GameManager = GameObject.FindGameObjectWithTag("GameController");
+            GameManager.GetComponent<EnemyManager>().GameOver();
         }
     }
 
