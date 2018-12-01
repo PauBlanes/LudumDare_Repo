@@ -17,9 +17,12 @@ public class PlayerController : MonoBehaviour {
     public Transform fireSpawn;
 
     //movement
-    public float speed;
-    private bool moving;
+    public float speed;    
     Vector3 dir = Vector3.zero;
+
+    //Aim    
+    Vector3 aimDirection;
+    public float firePointDistance;
 
     // Use this for initialization
     void Start () {
@@ -29,23 +32,19 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Move();
+        /*if (Move())
+            transform.position += dir * speed * Time.deltaTime; */
 
-        if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
+        if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + equipedWeapon.fireRate;
             Shoot();
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (moving)             
-             transform.position += dir * speed * Time.deltaTime;
+        Aim();
+    }    
 
-    }
-
-    void Move()
+    bool Move()
     {
         //Rotations
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -53,66 +52,77 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, 0, 225);
             dir.x = -1;
             dir.y = 1;
-            moving = true;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 0, 135);
             dir.x = 1;
             dir.y = 1;
-            moving = true;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 180);
             dir.x = 0;
             dir.y = 1;
-            moving = true;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 315);
-            moving = true;
+            transform.rotation = Quaternion.Euler(0, 0, 315);            
             dir.x = -1;
             dir.y = -1;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 45);
-            moving = true;
+            transform.rotation = Quaternion.Euler(0, 0, 45);            
             dir.x = 1;
             dir.y = -1;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
-            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 0);
-            moving = true;
+            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 0);           
             dir.x = 0;
             dir.y = -1;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 270);
-            moving = true;
+            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 270);           
             dir.x = -1;
             dir.y = 0;
+            return true;
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 90);
-            moving = true;
+            transform.rotation = transform.rotation = Quaternion.Euler(0, 0, 90);            
             dir.x = 1;
             dir.y = 0;
+            return true;
         }
-        else
-            moving = false;        
+
+        return false;        
 
     }
 
-    public void Shoot()
+    void Shoot()
     {        
-        GameObject b = Instantiate(equipedWeapon.bullet, fireSpawn.position, transform.rotation);
-        b.GetComponent<bullet>().direction -= transform.up;
+        GameObject b = Instantiate(equipedWeapon.bullet, fireSpawn.position, Quaternion.identity);
+        b.GetComponent<bullet>().direction = aimDirection.normalized;
+
+    }
+
+    void Aim()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        aimDirection = mousePos - transform.position;
+        aimDirection = Vector3.Normalize(aimDirection)*firePointDistance;
+
+        fireSpawn.transform.position = transform.position + aimDirection;        
 
     }
 
