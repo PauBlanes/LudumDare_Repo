@@ -129,6 +129,7 @@ MonoBehaviour:
     fireRate: 0.5
     bullet: {fileID: 1791668055490524, guid: 6fdce9d02ddffec4a82b94ee9191c183, type: 2}
   fireSpawn: {fileID: 4151914258456094}
+  pauseMenu: {fileID: 0}
 --- !u!212 &212144819410806076
 SpriteRenderer:
   m_ObjectHideFlags: 1

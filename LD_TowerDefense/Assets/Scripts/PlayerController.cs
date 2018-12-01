@@ -20,16 +20,16 @@ public class PlayerController : MonoBehaviour {
 
     //Metralleta tiempo que mantienes el máximo fire rate
     private float metralletaContador;
-    private bool exhaustedMetralleta; 
-
+    private bool exhaustedMetralleta;
+        
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[0];	  
+        equipedWeapon = weapons[0];        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         //MOURE
         /*if (Move())
             transform.position += dir * speed * Time.deltaTime; */
@@ -41,7 +41,17 @@ public class PlayerController : MonoBehaviour {
         LookAt();
 
         //DISPARAR
-        if (Input.GetMouseButton(0) && Time.time > nextFire 
+        Shoot();
+
+        //SI ES METRALLETA -> MECANICA DE ESPERAR
+        if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
+            MetralletaRoutine();
+                     
+    }
+
+    void Shoot()
+    {
+        if (Input.GetMouseButton(0) && Time.time > nextFire
             && equipedWeapon.type != Weapon.WeaponType.Pistola && !exhaustedMetralleta)//No es de tipo pistola
         {
             nextFire = Time.time + equipedWeapon.fireRate;
@@ -50,24 +60,19 @@ public class PlayerController : MonoBehaviour {
                 metralletaContador = 0;
                 equipedWeapon.shooting = true;
             }
-            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position-transform.position).normalized);
+            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
         } //Es pistola -> Disparar solo con click, no se puede mantener.
         else if (Input.GetMouseButtonDown(0) && equipedWeapon.type == Weapon.WeaponType.Pistola)
         {
-            equipedWeapon.shooting = true;                
-            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position-transform.position).normalized);
+            equipedWeapon.shooting = true;
+            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
         }
 
         if (Input.GetMouseButtonUp(0) && equipedWeapon.shooting)
         {
             equipedWeapon.shooting = false;
             if (exhaustedMetralleta) exhaustedMetralleta = false;
-        }            
-        
-        //SI ES METRALLETA -> MECANICA DE ESPERAR
-        if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
-            MetralletaRoutine();
-        
+        }
     }
 
     void LookAt()
