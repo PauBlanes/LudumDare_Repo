@@ -95,4 +95,12 @@ public class PlayerController : MonoBehaviour {
         b.GetComponent<bullet>().direction -= transform.up;
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+            
+        }
+    }
 }
