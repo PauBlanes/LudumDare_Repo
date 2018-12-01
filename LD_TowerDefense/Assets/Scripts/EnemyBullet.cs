@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour {
-
+public class EnemyBullet : MonoBehaviour {
     public float speed;
     public float damage;
 
@@ -12,16 +11,18 @@ public class bullet : MonoBehaviour {
     private float lifeCounter;
     private float lifeTime = 2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         transform.rotation = Quaternion.LookRotation(Vector3.forward, -direction);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         //Moure
         transform.position += direction * Time.deltaTime * speed;
-        
+
         //Destruir despres de X temps
         lifeCounter += Time.deltaTime;
         if (lifeCounter >= lifeTime)
@@ -30,9 +31,10 @@ public class bullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Wall")
+        if (collision.tag == "Base" )
         {
             Destroy(gameObject);
+            collision.GetComponent<Base>().health -= damage;
         }
     }
 }

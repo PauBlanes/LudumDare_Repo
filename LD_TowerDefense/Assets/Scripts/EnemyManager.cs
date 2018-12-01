@@ -36,22 +36,32 @@ public class EnemyManager : MonoBehaviour {
             if (timeSpawn <= 0)
             {
                 int aux = Random.Range(0, 100);
+                int aux2 = Random.Range(0,10);
+                int type=0;
+                if (aux2 < 1)
+                    type = 3;
+                else if (aux2 < 3)
+                    type = 2;
+                else if (aux2 < 5)
+                    type = 1;
+                else if (aux2 < 10)
+                    type = 0;
 
-                if(aux < 15)
+                if (aux < 15)
                 {
-                    Instantiate(EnemyPrefabs[0], SpawnPoints[0].transform.position, Quaternion.identity);
+                    Instantiate(EnemyPrefabs[type], SpawnPoints[0].transform.position, Quaternion.identity);
                 }
                 else if (aux < 30)
                 {
-                    Instantiate(EnemyPrefabs[0], SpawnPoints[1].transform.position, Quaternion.identity);
+                    Instantiate(EnemyPrefabs[type], SpawnPoints[1].transform.position, Quaternion.identity);
                 }
                 else if (aux < 60)
                 {
-                    Instantiate(EnemyPrefabs[0], SpawnPoints[2].transform.position, Quaternion.identity);
+                    Instantiate(EnemyPrefabs[type], SpawnPoints[2].transform.position, Quaternion.identity);
                 }
                 else if (aux < 100)
                 {
-                    Instantiate(EnemyPrefabs[0], SpawnPoints[3].transform.position, Quaternion.identity);
+                    Instantiate(EnemyPrefabs[type], SpawnPoints[3].transform.position, Quaternion.identity);
                 }
 
                 enemiesXround--;

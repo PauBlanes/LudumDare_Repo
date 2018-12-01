@@ -12,12 +12,13 @@ public class Enemy : MonoBehaviour {
     public float Attack;
     public Vector3 dir;
 
+    public GameObject Bullet;
 
     Vector3 targetPos;
     Vector3 myPos;
 
     //ATTACK
-    float attackCooldown=1;
+    public float attackCooldown=1;
     float wait=0;
     bool inRange = false;
     Base BaseSript;
@@ -34,10 +35,17 @@ public class Enemy : MonoBehaviour {
         
         if (inRange == true)
         {
+
             wait-= Time.deltaTime;
             if (wait <= 0)
             {
-                BaseSript.health -= Attack;
+                if (Bullet != null)
+                {
+                   GameObject newBullet = Instantiate(Bullet, this.transform.position, Quaternion.identity);
+                    newBullet.GetComponent<EnemyBullet>().direction = dir;
+                }
+                else { BaseSript.health -= Attack; }
+                
                 wait = attackCooldown;
             }
         }
@@ -57,7 +65,7 @@ public class Enemy : MonoBehaviour {
         else if (other.tag == "Bullet")
         {
             Destroy(other.gameObject);
-            Health--;
+            Health-=other.GetComponent<bullet>().damage;
 
             if (Health <= 0)
                 Destroy(this.gameObject);
@@ -76,5 +84,9 @@ public class Enemy : MonoBehaviour {
 
         dir = new Vector3(targetPos.x - myPos.x, targetPos.y - myPos.y, targetPos.z - myPos.z);
         dir = Vector3.Normalize(dir);
+        if (Target.tag == "Base" && Bullet != null)
+        {
+            inRange = true;
+        }
     }
 }
