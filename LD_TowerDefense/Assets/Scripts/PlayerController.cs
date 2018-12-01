@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour {
     public Transform fireSpawn; //posicio on spawnegen les bales
 
     //movement
-    public float speed;    
-    Vector3 dir = Vector3.zero;
+    /*public float speed;    
+    Vector3 dir = Vector3.zero;*/
 
     //Aim    
-    Vector3 aimDirection;
-    public float firePointDistance;
+    /*Vector3 aimDirection;
+    public float firePointDistance;*/
 
     //Metralleta tiempo que mantienes el máximo fire rate
     private float metralletaContador;
@@ -24,17 +24,21 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[1];	  
+        equipedWeapon = weapons[0];	  
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        //MOURE
         /*if (Move())
             transform.position += dir * speed * Time.deltaTime; */
-        
+
         //APUNTAR
-        Aim();
+        //Aim();
+
+        //Mirar el mouse
+        LookAt();
 
         //DISPARAR
         if (Input.GetMouseButton(0) && Time.time > nextFire 
@@ -46,28 +50,62 @@ public class PlayerController : MonoBehaviour {
                 metralletaContador = 0;
                 equipedWeapon.shooting = true;
             }
-            equipedWeapon.Shoot(fireSpawn.position, aimDirection.normalized);
+            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position-transform.position).normalized);
         } //Es pistola -> Disparar solo con click, no se puede mantener.
         else if (Input.GetMouseButtonDown(0) && equipedWeapon.type == Weapon.WeaponType.Pistola)
         {
             equipedWeapon.shooting = true;                
-            equipedWeapon.Shoot(fireSpawn.position, aimDirection.normalized);
+            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position-transform.position).normalized);
         }
 
         if (Input.GetMouseButtonUp(0) && equipedWeapon.shooting)
         {
             equipedWeapon.shooting = false;
             if (exhaustedMetralleta) exhaustedMetralleta = false;
-        }
-            
+        }            
         
         //SI ES METRALLETA -> MECANICA DE ESPERAR
         if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
             MetralletaRoutine();
         
-    }    
+    }
 
-    bool Move()
+    void LookAt()
+    {
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+
+        }
+    }
+
+    void MetralletaRoutine()
+    {
+        if (!equipedWeapon.shooting)
+        {
+            equipedWeapon.fireRate -= Time.deltaTime / 8; //cada segundo ganas 0.1
+            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 1);
+        }
+        else
+        {
+            //equipedWeapon.fireRate += Time.deltaTime / 2; //cada segundo pierdes 0.2
+            metralletaContador += 0.0005f;
+            equipedWeapon.fireRate *= Mathf.Pow(1.05f, metralletaContador);
+            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 0.8f);
+            if (Mathf.Approximately(equipedWeapon.fireRate, 0.8f))
+            {
+                exhaustedMetralleta = true;
+            }
+        }
+    }
+
+    /*bool Move()
     {
         //Rotations
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -129,9 +167,9 @@ public class PlayerController : MonoBehaviour {
 
         return false;        
 
-    }
-    
-    void Aim()
+    }*/
+
+    /*void Aim()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
@@ -140,33 +178,5 @@ public class PlayerController : MonoBehaviour {
 
         fireSpawn.transform.position = transform.position + aimDirection;        
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Wall")
-        {
-              
-        }
-    }    
-
-    void MetralletaRoutine ()
-    {
-        if (!equipedWeapon.shooting)
-        {            
-            equipedWeapon.fireRate -= Time.deltaTime/8; //cada segundo ganas 0.1
-            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 1);
-        }
-        else
-        {
-            //equipedWeapon.fireRate += Time.deltaTime / 2; //cada segundo pierdes 0.2
-            metralletaContador += 0.0005f;
-            equipedWeapon.fireRate *= Mathf.Pow(1.05f, metralletaContador);         
-            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 0.8f);
-            if (Mathf.Approximately(equipedWeapon.fireRate, 0.8f))
-            {
-                exhaustedMetralleta = true;
-            }
-        }
-    }    
+    }*/
 }
