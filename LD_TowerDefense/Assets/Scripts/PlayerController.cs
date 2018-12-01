@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    //Shooting
-    [System.Serializable]
-    public struct Weapon
-    {
-        public float fireRate;        
-        public GameObject bullet;        
-    }
-    private Weapon equipedWeapon;
-    private float nextFire;
-    public Weapon[] weapons;
-    public Transform fireSpawn;
+    //Shooting   
+    private Weapon equipedWeapon;    
+    public Weapon[] weapons; //totes les armes que pots tenir
+    private float nextFire; //contador para hacer el ratio de disparo
+    public Transform fireSpawn; //posicio on spawnegen les bales
 
     //movement
     public float speed;    
@@ -38,7 +32,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
             nextFire = Time.time + equipedWeapon.fireRate;
-            Shoot();
+            equipedWeapon.Shoot(fireSpawn.position, aimDirection.normalized);
         }
 
         Aim();
@@ -107,14 +101,7 @@ public class PlayerController : MonoBehaviour {
         return false;        
 
     }
-
-    void Shoot()
-    {        
-        GameObject b = Instantiate(equipedWeapon.bullet, fireSpawn.position, Quaternion.identity);
-        b.GetComponent<bullet>().direction = aimDirection.normalized;
-
-    }
-
+    
     void Aim()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
