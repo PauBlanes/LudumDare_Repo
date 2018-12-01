@@ -20,6 +20,10 @@ public class PauseMenu : MonoBehaviour {
         {
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
             GetComponent<PlayerController>().enabled = !GetComponent<PlayerController>().enabled;
+            if (Time.timeScale == 0)
+                Time.timeScale = 1;
+            else
+                Time.timeScale = 0;
         }
     }
 
@@ -32,6 +36,7 @@ public class PauseMenu : MonoBehaviour {
     {
         pauseMenu.SetActive(false);
         GetComponent<PlayerController>().enabled = true;
+        Time.timeScale = 1;
     }
 
     public void Exit()

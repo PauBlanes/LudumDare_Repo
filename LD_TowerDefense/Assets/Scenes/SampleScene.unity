@@ -152,7 +152,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
+    - target: {fileID: 114741040632531640, guid: 747516a777eae2f4da6f11cd72ab9118,
         type: 2}
       propertyPath: pauseMenu
       value: 
@@ -1219,23 +1219,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1851245897}
   m_CullTransparentMesh: 0
---- !u!1 &1955309455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1635469230064076, guid: 747516a777eae2f4da6f11cd72ab9118,
+--- !u!114 &1955309461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114741040632531640, guid: 747516a777eae2f4da6f11cd72ab9118,
     type: 2}
   m_PrefabInternal: {fileID: 69033077}
---- !u!114 &1955309461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1955309455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9117855f49fbc6e44a9e4aebbf8bdd89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1560610188}
 --- !u!1 &2134431635
 GameObject:
   m_ObjectHideFlags: 0
