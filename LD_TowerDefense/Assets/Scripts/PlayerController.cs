@@ -18,9 +18,13 @@ public class PlayerController : MonoBehaviour {
     Vector3 aimDirection;
     public float firePointDistance;
 
+    //Metralleta tiempo que mantienes el máximo fire rate
+    private float metralletaContador;
+    private bool exhaustedMetralleta; 
+
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[0];	  
+        equipedWeapon = weapons[1];	  
 	}
 	
 	// Update is called once per frame
@@ -28,14 +32,39 @@ public class PlayerController : MonoBehaviour {
 
         /*if (Move())
             transform.position += dir * speed * Time.deltaTime; */
+        
+        //APUNTAR
+        Aim();
 
-        if (Input.GetMouseButton(0) && Time.time > nextFire)
+        //DISPARAR
+        if (Input.GetMouseButton(0) && Time.time > nextFire 
+            && equipedWeapon.type != Weapon.WeaponType.Pistola && !exhaustedMetralleta)//No es de tipo pistola
         {
             nextFire = Time.time + equipedWeapon.fireRate;
+            if (!equipedWeapon.shooting)
+            {
+                metralletaContador = 0;
+                equipedWeapon.shooting = true;
+            }
+            equipedWeapon.Shoot(fireSpawn.position, aimDirection.normalized);
+        } //Es pistola -> Disparar solo con click, no se puede mantener.
+        else if (Input.GetMouseButtonDown(0) && equipedWeapon.type == Weapon.WeaponType.Pistola)
+        {
+            equipedWeapon.shooting = true;                
             equipedWeapon.Shoot(fireSpawn.position, aimDirection.normalized);
         }
 
-        Aim();
+        if (Input.GetMouseButtonUp(0) && equipedWeapon.shooting)
+        {
+            equipedWeapon.shooting = false;
+            if (exhaustedMetralleta) exhaustedMetralleta = false;
+        }
+            
+        
+        //SI ES METRALLETA -> MECANICA DE ESPERAR
+        if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
+            MetralletaRoutine();
+        
     }    
 
     bool Move()
@@ -118,6 +147,26 @@ public class PlayerController : MonoBehaviour {
         if (collision.tag == "Wall")
         {
               
+        }
+    }    
+
+    void MetralletaRoutine ()
+    {
+        if (!equipedWeapon.shooting)
+        {            
+            equipedWeapon.fireRate -= Time.deltaTime/8; //cada segundo ganas 0.1
+            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 1);
+        }
+        else
+        {
+            //equipedWeapon.fireRate += Time.deltaTime / 2; //cada segundo pierdes 0.2
+            metralletaContador += 0.0005f;
+            equipedWeapon.fireRate *= Mathf.Pow(1.05f, metralletaContador);         
+            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 0.8f);
+            if (Mathf.Approximately(equipedWeapon.fireRate, 0.8f))
+            {
+                exhaustedMetralleta = true;
+            }
         }
     }    
 }
