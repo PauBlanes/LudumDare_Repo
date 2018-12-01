@@ -14,13 +14,15 @@ public class bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, -direction);
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        //Moure
         transform.position += direction * Time.deltaTime * speed;
-
+        
+        //Destruir despres de X temps
         lifeCounter += Time.deltaTime;
         if (lifeCounter >= lifeTime)
             Destroy(gameObject);
