@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour {
     //UI
     public UIManager ui_manager;
 
+    //Sniper
+    private bool blinded;
+    private float blindTime = 2f;
+
     // Use this for initialization
     void Start () {
         //Només té la pistola i és la que té seleccionada
@@ -50,7 +54,8 @@ public class PlayerController : MonoBehaviour {
         LookAt();
 
         //DISPARAR
-        Shoot();
+        if (!blinded)
+            Shoot();
 
         //SI ES METRALLETA -> MECANICA DE ESPERAR
         if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
@@ -59,10 +64,12 @@ public class PlayerController : MonoBehaviour {
         //CANVIAR DE ARMAS
         ChangeWeapon();
 
+        //Hacks develop
         if (Input.GetKeyDown(KeyCode.R)){
             AddNextWeapon();
         }
 
+        //UI para las armas
         foreach (Weapon w in unlockedWeapons)
         {
             ui_manager.UpdateScore(w);
@@ -116,6 +123,17 @@ public class PlayerController : MonoBehaviour {
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+    }
+
+    public void Blind()
+    {
+        StartCoroutine(BlindTime());
+    }
+    IEnumerator BlindTime()
+    {
+        blinded = true;
+        yield return new WaitForSeconds(blindTime);
+        blinded = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

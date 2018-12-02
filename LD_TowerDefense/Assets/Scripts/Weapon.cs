@@ -27,8 +27,7 @@ public class Weapon {
     private int revolverMaxAmmo = 6;    
     private float rechargeTime = 5;
     private int revolverCountAmmo;
-
-
+    
     public void Shoot (Vector3 spawnPoint, Vector3 direction)
     {
         if (ammo > 0)
@@ -36,7 +35,8 @@ public class Weapon {
             GameObject b = GameObject.Instantiate(bullet, spawnPoint, Quaternion.identity);
             b.GetComponent<bullet>().direction = direction;
 
-            ammo--;
+            ammo--;           
+           
         }                
     }
 

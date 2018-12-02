@@ -72,7 +72,8 @@ public class Enemy : MonoBehaviour {
         {
             if (!other.GetComponent<bullet>().penetrate) //si no es la del sniper destruim la bala
                 Destroy(other.gameObject);
-
+            else //si es bala del franco mirar si ha tocat algu per fer lo de blind
+                other.GetComponent<bullet>().touchedEnemey = true;
             GetDamaged(other.GetComponent<bullet>().damage);            
             
         }

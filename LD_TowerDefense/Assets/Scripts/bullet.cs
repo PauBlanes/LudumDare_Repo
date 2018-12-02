@@ -10,9 +10,11 @@ public class bullet : MonoBehaviour {
     public Vector3 direction;
 
     private float lifeCounter;
-    private float lifeTime = 2;
+    private float lifeTime = 1;
 
     public bool penetrate;
+
+    public bool touchedEnemey;
 
 	// Use this for initialization
 	void Start () {
@@ -37,5 +39,11 @@ public class bullet : MonoBehaviour {
             Destroy(this.gameObject);
         }
         
+    }
+
+    void OnDestroy()
+    {
+        if (!touchedEnemey && penetrate)
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Blind();
     }
 }
