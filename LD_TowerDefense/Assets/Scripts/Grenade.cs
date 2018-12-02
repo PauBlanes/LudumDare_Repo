@@ -9,6 +9,8 @@ public class Grenade : MonoBehaviour {
     public float buffRadius;
     public float lifeTime; //Segurament el temps d'animació
 
+    public GameObject Boom;
+
     private List<GameObject> enemiesInDmgRange = new List<GameObject>();
     private List<GameObject> enemiesInBuffRange = new List<GameObject>();
 
@@ -17,6 +19,8 @@ public class Grenade : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        Instantiate(Boom, transform.position, Quaternion.identity);
 
         StartCoroutine(WaitAndDestroy());
 

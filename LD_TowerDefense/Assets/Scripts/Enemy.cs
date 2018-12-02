@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
 
     public GameObject[] imatges;
 
+    public GameObject Blood;
     public int xp;
 
     public GameObject Bullet;
@@ -112,7 +113,6 @@ public class Enemy : MonoBehaviour {
             imatges[2].SetActive(true);
             if (prov <= 20)
             {
-                Debug.Log("Get Ammo");
                 int wep = Random.Range(1, 4);
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
                 switch (wep)
@@ -129,6 +129,7 @@ public class Enemy : MonoBehaviour {
                 }
                 
             }
+            Instantiate(Blood, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             GameManager.GetComponent<EnemyManager>().Score +=xp;
         }

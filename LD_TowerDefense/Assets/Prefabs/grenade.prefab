@@ -78,6 +78,7 @@ MonoBehaviour:
   dmgRadius: 2
   buffRadius: 4
   lifeTime: 0.5
+  Boom: {fileID: 1883903123703212, guid: 40866939f515b03439d8f862501894d7, type: 2}
   segments: 50
 --- !u!120 &120310564919829032
 LineRenderer:

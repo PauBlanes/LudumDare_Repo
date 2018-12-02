@@ -19,6 +19,7 @@ public class bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         transform.rotation = Quaternion.LookRotation(Vector3.forward, -direction);
+
     }
 	
 	// Update is called once per frame

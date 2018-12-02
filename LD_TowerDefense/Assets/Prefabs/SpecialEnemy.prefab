@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301260483516286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.2958, y: -1.9500912, z: 0}
+  m_LocalPosition: {x: -15.984106, y: 0.31551504, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4202448616356938}
@@ -247,6 +247,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Blood: {fileID: 1101472513608970, guid: 6c0afcf66c0825d49b37c49b40fd4e4c, type: 2}
   xp: 7
   Bullet: {fileID: 1756553528163776, guid: 8d585683401e05c4ca9ede33fcb8f125, type: 2}
   attackCooldown: 1.5
