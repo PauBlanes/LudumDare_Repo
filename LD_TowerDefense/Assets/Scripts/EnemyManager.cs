@@ -137,6 +137,7 @@ public class EnemyManager : MonoBehaviour {
                 {
                     wave=0;
                     Round++;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     enemiesXround = 10;
                     timeRest = timeBetweenRounds;
                     numNorm = 7;
@@ -316,6 +317,7 @@ public class EnemyManager : MonoBehaviour {
                 {
                     wave=0;
                     Round++;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     timeRest = timeBetweenRounds;
                     numNorm = 9;
                     numFast = 9;
@@ -510,6 +512,7 @@ public class EnemyManager : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     Round++;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
                     timeRest = timeBetweenRounds;
                     numNorm = 15;
@@ -813,6 +816,7 @@ public class EnemyManager : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     Round++;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
                     timeRest = timeBetweenRounds;
                     numNorm = 13;
@@ -1097,6 +1101,7 @@ public class EnemyManager : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     Round++;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
                     timeRest = timeBetweenRounds;
                     numNorm = 19;

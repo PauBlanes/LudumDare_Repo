@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     //Shooting   
     private Weapon equipedWeapon;    
-    public Weapon[] weapons; //totes les armes que pots tenir
+    public Weapon[] allWeapons; //totes les armes que pots tenir
+    private List<Weapon> unlockedWeapons = new List<Weapon>(); //les que tens ara
     private float nextFire; //contador para hacer el ratio de disparo
     public Transform fireSpawn; //posicio on spawnegen les bales
 
@@ -27,7 +28,9 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[0];     
+        //Només té la pistola i és la que té seleccionada
+        unlockedWeapons.Add(allWeapons[0]);
+        equipedWeapon = unlockedWeapons[0];     
     }
 	
 	// Update is called once per frame
@@ -153,33 +156,33 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Alpha1))
         {
             weaponIndex = 0;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             weaponIndex = 1;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             weaponIndex = 2;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
             weaponIndex = 3;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
             weaponIndex = 4;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            weaponIndex = (weaponIndex + 1) % weapons.Length;
-            equipedWeapon = weapons[weaponIndex];
+            weaponIndex = (weaponIndex + 1) % unlockedWeapons.Count;
+            equipedWeapon = unlockedWeapons[weaponIndex];
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
@@ -187,10 +190,16 @@ public class PlayerController : MonoBehaviour {
             if (weaponIndex == 0)
                 weaponIndex = 4;
 
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+
         }
 
         
+    }
+    
+    public void AddNextWeapon()
+    {
+        unlockedWeapons.Add(allWeapons[unlockedWeapons.Count]);
     }
 
     /*bool Move()
