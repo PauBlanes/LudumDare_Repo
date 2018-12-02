@@ -113,8 +113,8 @@ public class Enemy : MonoBehaviour {
             imatges[2].SetActive(true);
             if (prov <= 20)
             {
-                int wep = Random.Range(1, 4);
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
+                int wep = Random.Range(1, Player.GetComponent<PlayerController>().GetUnlockedWeapons().Count);
                 switch (wep)
                 {
                     case 1:

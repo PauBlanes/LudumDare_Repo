@@ -13,9 +13,8 @@ public class SacrificeWeapon : MonoBehaviour {
     void Start()
     {
         popup = GameObject.FindGameObjectWithTag("SacrificePopup");
-
         popup.SetActive(false);
-        Sacrifice();
+        
     }
 
     // Update is called once per frame
