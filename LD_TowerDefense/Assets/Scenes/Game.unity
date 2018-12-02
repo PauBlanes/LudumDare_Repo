@@ -1747,6 +1747,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1813705448600816, guid: 5e0c8317e8cb0d64d99d005398c8b387, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e0c8317e8cb0d64d99d005398c8b387, type: 2}
   m_IsPrefabAsset: 0
@@ -4060,6 +4064,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1301260483516286, guid: df56aeea12a4ddb4d908c0054eaf4dce, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df56aeea12a4ddb4d908c0054eaf4dce, type: 2}
   m_IsPrefabAsset: 0
@@ -4585,11 +4593,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1295458145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1560870085103850, guid: 1142eb3d3e677b848a12987916e98960,
-    type: 2}
-  m_PrefabInternal: {fileID: 1764782770}
 --- !u!1 &1303697593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,11 +4925,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1384660324}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1384789615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1414921520500440, guid: 1142eb3d3e677b848a12987916e98960,
-    type: 2}
-  m_PrefabInternal: {fileID: 1764782770}
 --- !u!1 &1396318081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,11 +5325,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7465ba01c7454934cb280c6306d35e26, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1504891714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1101714205949886, guid: 1142eb3d3e677b848a12987916e98960,
-    type: 2}
-  m_PrefabInternal: {fileID: 1764782770}
 --- !u!1 &1508588324
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,6 +5542,10 @@ Prefab:
     - target: {fileID: 4915201326464514, guid: 54dc3b5c93822a04ba87d1b2f81a2020, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380494190362338, guid: 54dc3b5c93822a04ba87d1b2f81a2020, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dc3b5c93822a04ba87d1b2f81a2020, type: 2}
@@ -6186,11 +6183,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114472716636459124, guid: 1142eb3d3e677b848a12987916e98960,
-        type: 2}
-      propertyPath: imatges.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4542077432994738, guid: 1142eb3d3e677b848a12987916e98960, type: 2}
       propertyPath: m_LocalPosition.x
       value: -11.348354
@@ -6223,21 +6215,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114472716636459124, guid: 1142eb3d3e677b848a12987916e98960,
-        type: 2}
-      propertyPath: imatges.Array.data[0]
-      value: 
-      objectReference: {fileID: 1384789615}
-    - target: {fileID: 114472716636459124, guid: 1142eb3d3e677b848a12987916e98960,
-        type: 2}
-      propertyPath: imatges.Array.data[1]
-      value: 
-      objectReference: {fileID: 1295458145}
-    - target: {fileID: 114472716636459124, guid: 1142eb3d3e677b848a12987916e98960,
-        type: 2}
-      propertyPath: imatges.Array.data[2]
-      value: 
-      objectReference: {fileID: 1504891714}
+    - target: {fileID: 1046443450746160, guid: 1142eb3d3e677b848a12987916e98960, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1142eb3d3e677b848a12987916e98960, type: 2}
   m_IsPrefabAsset: 0

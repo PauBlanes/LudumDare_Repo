@@ -26,9 +26,9 @@ public class Base : MonoBehaviour {
             {
                 int wep = Random.Range(1, 4);
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
-                Player.GetComponent<PlayerController>().weapons[1].ammo += 50;
-                Player.GetComponent<PlayerController>().weapons[2].ammo += 5;
-                Player.GetComponent<PlayerController>().weapons[3].ammo += 3;
+                Player.GetComponent<PlayerController>().GetUnlockedWeapons()[1].ammo += 50;
+                Player.GetComponent<PlayerController>().GetUnlockedWeapons()[2].ammo += 5;
+                Player.GetComponent<PlayerController>().GetUnlockedWeapons()[3].ammo += 3;
                 time = cooldown;
             }
         }

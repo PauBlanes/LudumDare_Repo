@@ -117,13 +117,13 @@ public class Enemy : MonoBehaviour {
                 switch (wep)
                 {
                     case 1:
-                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 50;
+                        Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 50;
                         break;
                     case 2:
-                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 5;
+                        Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 5;
                         break;
                     case 3:
-                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 3;
+                        Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 3;
                         break;
                 }
                 
