@@ -33,6 +33,11 @@ public class EnemyManager : MonoBehaviour {
         timeRest = timeBetweenRounds;
         Round = 0;
         wave = 0;
+        /*numNorm = 17 + (2 * (Round - 5));
+        numFast = 2 + (3 * (Round - 5));
+        numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
+        numSpec = 15 + (1 * (Round - 5));
+        enemiesXround = numFast + numNorm + numTank + numSpec;*/
 
     }
 	
