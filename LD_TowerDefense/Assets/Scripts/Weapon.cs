@@ -66,6 +66,11 @@ public class Weapon {
     public void ResetRevolver()
     {        
         revolverCountAmmo = 0;
-    }  
+    }
+    
+    public int GetRevolverAmmo()
+    {
+        return revolverCountAmmo;
+    }
     
 }
