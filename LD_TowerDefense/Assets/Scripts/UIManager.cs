@@ -12,6 +12,8 @@ public class UIManager {
     public Text[] ammoTexts;
     public Text revolverText;
 
+    public Image[] removed;
+
 	public void UnlockWeapon(int index)
     {
         lockIcons[index].enabled = false;
@@ -43,5 +45,9 @@ public class UIManager {
             default:                
                 break;
         }
+    }
+    public void ShowRemoved (int index)
+    {
+        removed[index - 1].GetComponent<Image>().enabled = true;
     }
 }

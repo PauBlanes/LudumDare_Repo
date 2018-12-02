@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50700863513947850}
   - component: {fileID: 58971394180848706}
   - component: {fileID: 114741040632531640}
+  - component: {fileID: 114291844861531878}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -109,6 +110,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &114291844861531878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1635469230064076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25191529094bc14d8221713e1626bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114741040632531640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,26 +153,31 @@ MonoBehaviour:
   - fireRate: 0
     type: 0
     bullet: {fileID: 1248548006503636, guid: f1ce682f8a59af84890efbf0a1636f25, type: 2}
+    removed: 0
     canMaintainFire: 0
     ammo: 100
   - fireRate: 0.25
     type: 1
     bullet: {fileID: 1791668055490524, guid: 6fdce9d02ddffec4a82b94ee9191c183, type: 2}
+    removed: 0
     canMaintainFire: 1
     ammo: 100
   - fireRate: 0.5
     type: 4
     bullet: {fileID: 1570154035980470, guid: 69c5b7b49cb779c42afec825334df09d, type: 2}
+    removed: 0
     canMaintainFire: 0
     ammo: 100
   - fireRate: 1.5
     type: 3
     bullet: {fileID: 1248548006503636, guid: d60926543adfd9141b3df8b313a29b17, type: 2}
+    removed: 0
     canMaintainFire: 0
     ammo: 100
   - fireRate: 0.2
     type: 2
     bullet: {fileID: 1248548006503636, guid: f2fccb12b69986c49a767b151044c470, type: 2}
+    removed: 0
     canMaintainFire: 1
     ammo: 100
   fireSpawn: {fileID: 4151914258456094}
@@ -177,6 +199,11 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     revolverText: {fileID: 0}
+    removed:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!212 &212144819410806076
 SpriteRenderer:
   m_ObjectHideFlags: 1

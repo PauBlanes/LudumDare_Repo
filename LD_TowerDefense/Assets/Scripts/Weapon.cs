@@ -17,6 +17,8 @@ public class Weapon {
 
     public GameObject bullet;
 
+    public bool removed;
+
     //per fer si pots mantenir apretat per disparar
     public bool canMaintainFire;
 

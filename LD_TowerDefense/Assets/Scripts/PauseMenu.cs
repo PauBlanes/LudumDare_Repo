@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //PAUSE MENU
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameObject.FindGameObjectWithTag("SacrificePopup").activeInHierarchy)
         {
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
             GetComponent<PlayerController>().enabled = !GetComponent<PlayerController>().enabled;

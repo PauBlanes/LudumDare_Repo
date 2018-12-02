@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
         LookAt();
 
         //DISPARAR
-        if (!blinded)
+        if (!blinded && !equipedWeapon.removed)
             Shoot();
 
         //SI ES METRALLETA -> MECANICA DE ESPERAR
@@ -241,6 +241,18 @@ public class PlayerController : MonoBehaviour {
     public List<Weapon> GetUnlockedWeapons()
     {
         return unlockedWeapons;
+    }
+    public void RemoveWeapon(Weapon.WeaponType wToDestroy)
+    {
+        for (int i = 0; i < unlockedWeapons.Count; i++)
+        {
+            if (unlockedWeapons[i].type == wToDestroy)
+            {
+                unlockedWeapons[i].removed = true;
+                ui_manager.ShowRemoved(i);
+                return;
+            }
+        }
     }
 
     /*bool Move()
