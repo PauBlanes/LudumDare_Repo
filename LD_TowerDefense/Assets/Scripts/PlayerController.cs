@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour {
     public float firePointDistance;*/
 
     //Metralleta tiempo que mantienes el máximo fire rate
-    private float metralletaContador;
+    private float metralletaContador; //a lo que elevem la base per fer la curva exponencial
     private bool exhaustedMetralleta;
         
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[0];        
+        equipedWeapon = weapons[2];        
 	}
 	
 	// Update is called once per frame
@@ -52,25 +52,26 @@ public class PlayerController : MonoBehaviour {
     void Shoot()
     {
         if (Input.GetMouseButton(0) && Time.time > nextFire
-            && equipedWeapon.type != Weapon.WeaponType.Pistola && !exhaustedMetralleta)//No es de tipo pistola
+            && equipedWeapon.canMaintainFire && !exhaustedMetralleta)//No es de tipo pistola
         {
             nextFire = Time.time + equipedWeapon.fireRate;
-            if (!equipedWeapon.shooting)
+            if (!equipedWeapon.Shooting)
             {
                 metralletaContador = 0;
-                equipedWeapon.shooting = true;
+                equipedWeapon.Shooting = true;
             }
             equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
         } //Es pistola -> Disparar solo con click, no se puede mantener.
-        else if (Input.GetMouseButtonDown(0) && equipedWeapon.type == Weapon.WeaponType.Pistola)
+        else if (Input.GetMouseButtonDown(0) && Time.time > nextFire && !equipedWeapon.canMaintainFire)
         {
-            equipedWeapon.shooting = true;
+            nextFire = Time.time + equipedWeapon.fireRate;
+            equipedWeapon.Shooting = true;
             equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
         }
 
-        if (Input.GetMouseButtonUp(0) && equipedWeapon.shooting)
+        if (Input.GetMouseButtonUp(0) && equipedWeapon.Shooting)
         {
-            equipedWeapon.shooting = false;
+            equipedWeapon.Shooting = false;
             if (exhaustedMetralleta) exhaustedMetralleta = false;
         }
     }
@@ -92,14 +93,13 @@ public class PlayerController : MonoBehaviour {
 
     void MetralletaRoutine()
     {
-        if (!equipedWeapon.shooting)
+        if (!equipedWeapon.Shooting)
         {
-            equipedWeapon.fireRate -= Time.deltaTime / 8; //cada segundo ganas 0.1
-            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 1);
+            equipedWeapon.fireRate -= Time.deltaTime / 8; //lo que accelera cada segundo
+            equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 0.8f);
         }
         else
-        {
-            //equipedWeapon.fireRate += Time.deltaTime / 2; //cada segundo pierdes 0.2
+        {            
             metralletaContador += 0.0005f;
             equipedWeapon.fireRate *= Mathf.Pow(1.05f, metralletaContador);
             equipedWeapon.fireRate = Mathf.Clamp(equipedWeapon.fireRate, 0.05f, 0.8f);

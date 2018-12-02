@@ -64,9 +64,10 @@ public class Enemy : MonoBehaviour {
         }
         else if (other.tag == "Bullet")
         {
-            Destroy(other.gameObject);
+            if (!other.GetComponent<bullet>().penetrate) //si no es la del sniper destruim la bala
+                Destroy(other.gameObject);
             Health-=other.GetComponent<bullet>().damage;
-
+            
             if (Health <= 0)
                 Destroy(this.gameObject);
         }

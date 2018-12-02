@@ -984,6 +984,11 @@ Prefab:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1102959667}
+    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
+        type: 2}
+      propertyPath: weapons.Array.data[1].canMaintainFire
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 747516a777eae2f4da6f11cd72ab9118, type: 2}
   m_IsPrefabAsset: 0

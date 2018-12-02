@@ -12,6 +12,8 @@ public class bullet : MonoBehaviour {
     private float lifeCounter;
     private float lifeTime = 2;
 
+    public bool penetrate;
+
 	// Use this for initialization
 	void Start () {
         transform.rotation = Quaternion.LookRotation(Vector3.forward, -direction);
@@ -30,7 +32,7 @@ public class bullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Wall")
+        if (collision.tag == "Wall")
         {
             Destroy(gameObject);
         }
