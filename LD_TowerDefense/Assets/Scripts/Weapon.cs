@@ -55,7 +55,7 @@ public class Weapon {
         {            
             Shoot(spawnPoint, direction);
             revolverCountAmmo++;
-            GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().health -= 100;
+            GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().health -= 15;
         }
         else if (revolverCountAmmo == revolverMaxAmmo)
         {            
