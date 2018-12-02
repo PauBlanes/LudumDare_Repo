@@ -133,18 +133,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - shooting: 0
-    type: 0
+  - type: 0
     fireRate: 0
     bullet: {fileID: 1248548006503636, guid: f1ce682f8a59af84890efbf0a1636f25, type: 2}
-  - shooting: 0
-    type: 1
+    canMaintainFire: 0
+  - type: 1
     fireRate: 0.5
     bullet: {fileID: 1791668055490524, guid: 6fdce9d02ddffec4a82b94ee9191c183, type: 2}
-  - shooting: 0
-    type: 4
+    canMaintainFire: 0
+  - type: 4
     fireRate: 0.5
     bullet: {fileID: 1570154035980470, guid: 69c5b7b49cb779c42afec825334df09d, type: 2}
+    canMaintainFire: 0
+  - type: 3
+    fireRate: 1.5
+    bullet: {fileID: 1570154035980470, guid: 69c5b7b49cb779c42afec825334df09d, type: 2}
+    canMaintainFire: 0
   fireSpawn: {fileID: 4151914258456094}
 --- !u!212 &212144819410806076
 SpriteRenderer:

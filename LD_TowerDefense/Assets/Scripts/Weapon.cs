@@ -23,4 +23,9 @@ public class Weapon {
         if (type == WeaponType.Francotirador)
             b.GetComponent<bullet>().penetrate = true;
     }
+
+    public void ShootGrenade (Vector3 spawnPoint)
+    {
+        GameObject.Instantiate(bullet, spawnPoint, Quaternion.identity);
+    }
 }

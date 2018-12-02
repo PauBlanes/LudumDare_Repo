@@ -90,4 +90,10 @@ public class Enemy : MonoBehaviour {
             inRange = true;
         }
     }
+    
+    public void Buff()
+    {
+        Speed *= 2;
+        attackCooldown *= 0.5f;
+    }
 }

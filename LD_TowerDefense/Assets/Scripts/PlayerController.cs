@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
         
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[2];        
+        equipedWeapon = weapons[3];        
 	}
 	
 	// Update is called once per frame
@@ -60,13 +60,24 @@ public class PlayerController : MonoBehaviour {
                 metralletaContador = 0;
                 equipedWeapon.Shooting = true;
             }
-            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
+
+            //Shooting
+            if (equipedWeapon.type != Weapon.WeaponType.Lanzagranadas)
+                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
+            else
+                equipedWeapon.ShootGrenade(GetMousePosInWorld());
+
         } //Es pistola -> Disparar solo con click, no se puede mantener.
         else if (Input.GetMouseButtonDown(0) && Time.time > nextFire && !equipedWeapon.canMaintainFire)
         {
             nextFire = Time.time + equipedWeapon.fireRate;
             equipedWeapon.Shooting = true;
-            equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
+
+            //Shooting
+            if (equipedWeapon.type != Weapon.WeaponType.Lanzagranadas)
+                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
+            else
+                equipedWeapon.ShootGrenade(GetMousePosInWorld());
         }
 
         if (Input.GetMouseButtonUp(0) && equipedWeapon.Shooting)
@@ -108,6 +119,13 @@ public class PlayerController : MonoBehaviour {
                 exhaustedMetralleta = true;
             }
         }
+    }
+
+    Vector3 GetMousePosInWorld()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        return mousePos;
     }
 
     /*bool Move()
