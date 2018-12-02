@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635469230064076}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.3418496, y: -1.2363391, z: -0.026325}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9.460603, y: 9.460603, z: 9.460603}
   m_Children:
   - {fileID: 4151914258456094}
@@ -132,24 +132,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e617bb9e638658147b2e78b8c642f87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - type: 0
-    fireRate: 0
+  allWeapons:
+  - fireRate: 0
+    type: 0
     bullet: {fileID: 1248548006503636, guid: f1ce682f8a59af84890efbf0a1636f25, type: 2}
     canMaintainFire: 0
-  - type: 1
-    fireRate: 0.5
+    ammo: 100
+  - fireRate: 0.25
+    type: 1
     bullet: {fileID: 1791668055490524, guid: 6fdce9d02ddffec4a82b94ee9191c183, type: 2}
-    canMaintainFire: 0
-  - type: 4
-    fireRate: 0.5
+    canMaintainFire: 1
+    ammo: 100
+  - fireRate: 0.5
+    type: 4
     bullet: {fileID: 1570154035980470, guid: 69c5b7b49cb779c42afec825334df09d, type: 2}
     canMaintainFire: 0
-  - type: 3
-    fireRate: 1.5
+    ammo: 100
+  - fireRate: 1.5
+    type: 3
     bullet: {fileID: 1248548006503636, guid: d60926543adfd9141b3df8b313a29b17, type: 2}
     canMaintainFire: 0
+    ammo: 100
+  - fireRate: 0.2
+    type: 2
+    bullet: {fileID: 1248548006503636, guid: f2fccb12b69986c49a767b151044c470, type: 2}
+    canMaintainFire: 1
+    ammo: 100
   fireSpawn: {fileID: 4151914258456094}
+  ui_manager:
+    lockIcons:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    selectedFrames:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    ammoTexts:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    revolverText: {fileID: 0}
 --- !u!212 &212144819410806076
 SpriteRenderer:
   m_ObjectHideFlags: 1

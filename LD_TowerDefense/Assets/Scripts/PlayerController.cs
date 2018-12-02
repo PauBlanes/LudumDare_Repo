@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     //Shooting   
     private Weapon equipedWeapon;    
-    public Weapon[] weapons; //totes les armes que pots tenir
+    public Weapon[] allWeapons; //totes les armes que pots tenir
+    private List<Weapon> unlockedWeapons = new List<Weapon>(); //les que tens ara
     private float nextFire; //contador para hacer el ratio de disparo
     public Transform fireSpawn; //posicio on spawnegen les bales
 
@@ -25,9 +26,14 @@ public class PlayerController : MonoBehaviour {
     //Canviar de arma
     private int weaponIndex;
 
+    //UI
+    public UIManager ui_manager;
+
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[0];     
+        //Només té la pistola i és la que té seleccionada
+        unlockedWeapons.Add(allWeapons[0]);
+        equipedWeapon = unlockedWeapons[0];     
     }
 	
 	// Update is called once per frame
@@ -52,7 +58,15 @@ public class PlayerController : MonoBehaviour {
 
         //CANVIAR DE ARMAS
         ChangeWeapon();
-                     
+
+        if (Input.GetKeyDown(KeyCode.R)){
+            AddNextWeapon();
+        }
+
+        foreach (Weapon w in unlockedWeapons)
+        {
+            ui_manager.UpdateScore(w);
+        }        
     }
 
     void Shoot()
@@ -150,47 +164,65 @@ public class PlayerController : MonoBehaviour {
 
     void ChangeWeapon ()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weaponIndex = 0;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedWeapons.Count >= 2)
         {
             weaponIndex = 1;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedWeapons.Count >= 3)
         {
             weaponIndex = 2;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
         }
-        if (Input.GetKey(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && unlockedWeapons.Count >= 4)
         {
             weaponIndex = 3;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
         }
-        if (Input.GetKey(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5) && unlockedWeapons.Count >= 5)
         {
             weaponIndex = 4;
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            weaponIndex = (weaponIndex + 1) % weapons.Length;
-            equipedWeapon = weapons[weaponIndex];
+            weaponIndex = (weaponIndex + 1) % unlockedWeapons.Count;
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
+
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             weaponIndex--;
-            if (weaponIndex == 0)
-                weaponIndex = 4;
+            if (weaponIndex < 0)
+                weaponIndex = unlockedWeapons.Count-1;
 
-            equipedWeapon = weapons[weaponIndex];
+            equipedWeapon = unlockedWeapons[weaponIndex];
+            ui_manager.SelectWeapon(weaponIndex);
+
         }
-
         
+    }
+    
+    public void AddNextWeapon()
+    {
+        ui_manager.UnlockWeapon(unlockedWeapons.Count-1);
+        unlockedWeapons.Add(allWeapons[unlockedWeapons.Count]);        
+    }
+    public List<Weapon> GetUnlockedWeapons()
+    {
+        return unlockedWeapons;
     }
 
     /*bool Move()
