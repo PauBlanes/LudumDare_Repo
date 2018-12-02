@@ -10,6 +10,7 @@ TagManager:
   - Node
   - Wall
   - EnemyBullet
+  - Building
   layers:
   - Default
   - TransparentFX

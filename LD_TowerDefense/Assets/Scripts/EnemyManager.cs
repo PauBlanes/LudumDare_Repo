@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour {
 
+    public int Score=0;
 
     public GameObject[] SpawnPoints;
 
     public GameObject[] EnemyPrefabs;
 
     public int Round=0;
-    int wave = 0;
+    public int wave = 0;
 
     public Text GameOverText;
     //NO TOCAR
-    int enemiesXround=5;
+    public int enemiesXround=5;
     float timeBetweenEnemies=0.5f;
     float timeBetweenRounds=7;
     int enemyMultiplayer = 35;
@@ -74,7 +75,7 @@ public class EnemyManager : MonoBehaviour {
                 {
                     wave++;
                     enemiesXround = 7;
-                    timeSpawn = timeBetweenEnemies;
+                    timeRest = timeBetweenRounds;
                 }
             }
             

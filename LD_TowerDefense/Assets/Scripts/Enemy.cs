@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour {
     public float Attack;
     public Vector3 dir;
 
+    public GameObject[] imatges;
+
+    public int xp;
+
     public GameObject Bullet;
 
     Vector3 targetPos;
@@ -23,12 +27,14 @@ public class Enemy : MonoBehaviour {
     bool inRange = false;
     Base BaseSript;
 
+    GameObject GameManager;
+
     // Use this for initialization
     void Start () {
         //Target = GameObject.FindGameObjectWithTag ( "Base" );
         //setDir();
-       
-	}
+       GameManager = GameObject.FindGameObjectWithTag("GameController");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -57,7 +63,7 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Base")
+        if (other.tag == "Base" || other.tag == "building")
         {
             BaseSript = other.GetComponent<Base>();
             inRange = true;
@@ -70,12 +76,6 @@ public class Enemy : MonoBehaviour {
             GetDamaged(other.GetComponent<bullet>().damage);            
             
         }
-        else if (other.tag == "Player")
-        {
-            Destroy(other.gameObject);
-            GameObject GameManager = GameObject.FindGameObjectWithTag("GameController");
-            GameManager.GetComponent<EnemyManager>().GameOver();
-        }
     }
 
     public void setDir() {
@@ -84,9 +84,12 @@ public class Enemy : MonoBehaviour {
 
         dir = new Vector3(targetPos.x - myPos.x, targetPos.y - myPos.y, targetPos.z - myPos.z);
         dir = Vector3.Normalize(dir);
-        if (Target.tag == "Base" && Bullet != null)
+        if ((Target.tag == "Base"|| Target.tag == "Building"))
         {
-            inRange = true;
+            imatges[1].SetActive(true);
+            imatges[0].SetActive(false);
+            if(Bullet != null)
+                inRange = true;
         }
     }
     
@@ -94,12 +97,42 @@ public class Enemy : MonoBehaviour {
     {
         Speed *= 2;
         attackCooldown *= 0.5f;
+        imatges[1].SetActive(true);
+        imatges[0].SetActive(false);
     }
 
     public void GetDamaged (float dmg)
     {
         Health -= dmg;
-        if (Health <= 0)
+        if (Health <= 0) {
+            int prov = Random.Range(0, 100);
+            imatges[1].SetActive(false);
+            imatges[0].SetActive(false);
+            imatges[2].SetActive(true);
+            if (prov <= 20)
+            {
+                Debug.Log("Get Ammo");
+                int wep = Random.Range(1, 4);
+                GameObject Player = GameObject.FindGameObjectWithTag("Player");
+                switch (wep)
+                {
+                    case 1:
+                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 50;
+                        break;
+                    case 2:
+                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 5;
+                        break;
+                    case 3:
+                        Player.GetComponent<PlayerController>().weapons[wep].ammo += 3;
+                        break;
+                }
+                
+            }
             Destroy(this.gameObject);
+            GameManager.GetComponent<EnemyManager>().Score +=xp;
+        }
+
+
+            
     }
 }

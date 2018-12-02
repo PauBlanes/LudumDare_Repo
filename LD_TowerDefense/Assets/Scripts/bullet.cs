@@ -34,7 +34,8 @@ public class bullet : MonoBehaviour {
     {
         if (collision.tag == "Wall")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
+        
     }
 }

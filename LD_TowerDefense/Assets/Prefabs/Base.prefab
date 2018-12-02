@@ -51,7 +51,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1143995910977146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -168,4 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c210de993a875546881a31524ca5a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 500
+  ammo: 0
+  heal: 0

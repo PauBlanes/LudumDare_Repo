@@ -31,7 +31,7 @@ public class EnemyBullet : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Base" )
+        if (collision.tag == "Base" || collision.tag == "Building")
         {
             Destroy(gameObject);
             collision.GetComponent<Base>().health -= damage;
