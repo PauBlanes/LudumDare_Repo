@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour {
         else
         {
             transform.Translate(dir * Speed * Time.deltaTime);
-        }
+        }        
 	}
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -66,10 +66,9 @@ public class Enemy : MonoBehaviour {
         {
             if (!other.GetComponent<bullet>().penetrate) //si no es la del sniper destruim la bala
                 Destroy(other.gameObject);
-            Health-=other.GetComponent<bullet>().damage;
+
+            GetDamaged(other.GetComponent<bullet>().damage);            
             
-            if (Health <= 0)
-                Destroy(this.gameObject);
         }
         else if (other.tag == "Player")
         {
@@ -95,5 +94,12 @@ public class Enemy : MonoBehaviour {
     {
         Speed *= 2;
         attackCooldown *= 0.5f;
+    }
+
+    public void GetDamaged (float dmg)
+    {
+        Health -= dmg;
+        if (Health <= 0)
+            Destroy(this.gameObject);
     }
 }

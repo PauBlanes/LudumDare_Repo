@@ -30,7 +30,7 @@ public class Grenade : MonoBehaviour {
 
         foreach (GameObject e in enemiesInDmgRange)
         {
-            e.GetComponent<Enemy>().Health -= damage;
+            e.GetComponent<Enemy>().GetDamaged(damage);            
         }
         foreach (GameObject e in enemiesInBuffRange)
         {

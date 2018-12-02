@@ -157,12 +157,6 @@ Prefab:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1560610188}
-    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
-        type: 2}
-      propertyPath: weapons.Array.data[3].bullet
-      value: 
-      objectReference: {fileID: 1248548006503636, guid: d60926543adfd9141b3df8b313a29b17,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 747516a777eae2f4da6f11cd72ab9118, type: 2}
   m_IsPrefabAsset: 0

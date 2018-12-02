@@ -147,7 +147,7 @@ MonoBehaviour:
     canMaintainFire: 0
   - type: 3
     fireRate: 1.5
-    bullet: {fileID: 1570154035980470, guid: 69c5b7b49cb779c42afec825334df09d, type: 2}
+    bullet: {fileID: 1248548006503636, guid: d60926543adfd9141b3df8b313a29b17, type: 2}
     canMaintainFire: 0
   fireSpawn: {fileID: 4151914258456094}
 --- !u!212 &212144819410806076

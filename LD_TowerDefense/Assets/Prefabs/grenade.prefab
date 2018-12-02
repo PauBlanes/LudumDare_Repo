@@ -74,9 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79665a3fe99697644a5323016f859f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 50
   dmgRadius: 2
-  buffRadius: 3.5
+  buffRadius: 4
   lifeTime: 0.5
   segments: 50
 --- !u!120 &120310564919829032
