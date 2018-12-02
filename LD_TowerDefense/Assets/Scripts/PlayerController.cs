@@ -21,11 +21,14 @@ public class PlayerController : MonoBehaviour {
     //Metralleta tiempo que mantienes el máximo fire rate
     private float metralletaContador; //a lo que elevem la base per fer la curva exponencial
     private bool exhaustedMetralleta;
-        
+
+    //Canviar de arma
+    private int weaponIndex;
+
     // Use this for initialization
     void Start () {
-        equipedWeapon = weapons[3];        
-	}
+        equipedWeapon = weapons[0];     
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,6 +49,9 @@ public class PlayerController : MonoBehaviour {
         //SI ES METRALLETA -> MECANICA DE ESPERAR
         if (equipedWeapon.type == Weapon.WeaponType.Metralleta)
             MetralletaRoutine();
+
+        //CANVIAR DE ARMAS
+        ChangeWeapon();
                      
     }
 
@@ -62,10 +68,12 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Shooting
-            if (equipedWeapon.type != Weapon.WeaponType.Lanzagranadas)
-                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
-            else
+            if (equipedWeapon.type == Weapon.WeaponType.Lanzagranadas)
                 equipedWeapon.ShootGrenade(GetMousePosInWorld());
+            else if (equipedWeapon.type == Weapon.WeaponType.Revolver)
+                equipedWeapon.ShootRevolver(fireSpawn.position, (fireSpawn.position - transform.position).normalized, this);
+            else
+                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
 
         } //Es pistola -> Disparar solo con click, no se puede mantener.
         else if (Input.GetMouseButtonDown(0) && Time.time > nextFire && !equipedWeapon.canMaintainFire)
@@ -74,12 +82,14 @@ public class PlayerController : MonoBehaviour {
             equipedWeapon.Shooting = true;
 
             //Shooting
-            if (equipedWeapon.type != Weapon.WeaponType.Lanzagranadas)
-                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
-            else
+            if (equipedWeapon.type == Weapon.WeaponType.Lanzagranadas)
                 equipedWeapon.ShootGrenade(GetMousePosInWorld());
+            else if (equipedWeapon.type == Weapon.WeaponType.Revolver)
+                equipedWeapon.ShootRevolver(fireSpawn.position, (fireSpawn.position - transform.position).normalized, this);
+            else     
+                equipedWeapon.Shoot(fireSpawn.position, (fireSpawn.position - transform.position).normalized);
         }
-
+        //Quan deixes de disparar
         if (Input.GetMouseButtonUp(0) && equipedWeapon.Shooting)
         {
             equipedWeapon.Shooting = false;
@@ -126,6 +136,61 @@ public class PlayerController : MonoBehaviour {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;
+    }
+
+    public void StartRevolverWait(float t)
+    {
+        StartCoroutine(RevolverWait(t));
+    }
+    IEnumerator RevolverWait (float t)
+    {
+        yield return new WaitForSeconds(t);
+        equipedWeapon.ResetRevolver();
+    }
+
+    void ChangeWeapon ()
+    {
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            weaponIndex = 0;
+            equipedWeapon = weapons[weaponIndex];
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            weaponIndex = 1;
+            equipedWeapon = weapons[weaponIndex];
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            weaponIndex = 2;
+            equipedWeapon = weapons[weaponIndex];
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            weaponIndex = 3;
+            equipedWeapon = weapons[weaponIndex];
+        }
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            weaponIndex = 4;
+            equipedWeapon = weapons[weaponIndex];
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            weaponIndex = (weaponIndex + 1) % weapons.Length;
+            equipedWeapon = weapons[weaponIndex];
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            weaponIndex--;
+            if (weaponIndex == 0)
+                weaponIndex = 4;
+
+            equipedWeapon = weapons[weaponIndex];
+        }
+
+        
     }
 
     /*bool Move()
