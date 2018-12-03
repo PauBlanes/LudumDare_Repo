@@ -132,6 +132,9 @@ public class Enemy : MonoBehaviour {
                     case 3:
                         Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 3;
                         break;
+                    case 4:
+                        Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 6;
+                        break;
                 }
                 
             }
