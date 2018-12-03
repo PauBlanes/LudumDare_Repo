@@ -24,6 +24,8 @@ public class Node : MonoBehaviour {
             if (enemyscript.Target == this.gameObject || enemyscript.Target==null)
             {
                 int aux = Random.Range(0, Nodes.Length);
+                if (Nodes[aux] == null)
+                    Nodes[aux] = GameObject.FindGameObjectWithTag("Base");
                 enemyscript.Target = Nodes[aux];
                 enemyscript.setDir();
             }

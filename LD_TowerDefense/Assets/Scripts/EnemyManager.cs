@@ -58,27 +58,26 @@ public class EnemyManager : MonoBehaviour {
             timeSpawn -= Time.deltaTime;
             if (timeSpawn <= 0)
             {
-                int aux = Random.Range(0, 100);
-                int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                int aux2 = Random.Range(0, 100);
+                int aux = Random.Range(0, EnemyPrefabs.Length);
                 int zone = 0;
 
-                if (aux < 15)
+                if (aux2 < 15)
                 {
                     zone = 0;
                 }
-                else if (aux < 30)
+                else if (aux2 < 30)
                 {
                     zone = 1;
                 }
-                else if (aux < 60)
+                else if (aux2 < 60)
                 {
                     zone = 2;
                 }
-                else if (aux < 100)
+                else if (aux2 < 100)
                 {
                     zone = 3;
                 }
-
 
                 if (aux == 0 && numNorm > 0)
                 {
@@ -86,6 +85,7 @@ public class EnemyManager : MonoBehaviour {
                     numNorm--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 1 && numFast > 0)
                 {
@@ -93,6 +93,7 @@ public class EnemyManager : MonoBehaviour {
                     numFast--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 2 && numTank > 0)
                 {
@@ -100,6 +101,7 @@ public class EnemyManager : MonoBehaviour {
                     numTank--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 3 && numSpec > 0)
                 {
@@ -107,6 +109,7 @@ public class EnemyManager : MonoBehaviour {
                     numSpec--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
 
             }
