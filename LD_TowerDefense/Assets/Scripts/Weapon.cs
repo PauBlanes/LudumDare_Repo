@@ -32,7 +32,7 @@ public class Weapon {
     
     public void Shoot (Vector3 spawnPoint, Vector3 direction)
     {
-        if (ammo > 0)
+        if (ammo > 0 || type == WeaponType.Pistola)
         {
             GameObject b = GameObject.Instantiate(bullet, spawnPoint, Quaternion.identity);
             b.GetComponent<bullet>().direction = direction;

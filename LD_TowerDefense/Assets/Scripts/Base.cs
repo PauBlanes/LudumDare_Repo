@@ -68,8 +68,15 @@ public class Base : MonoBehaviour {
 
     public void GetDamaged(float damage)
     {
+        if (ammo || heal)
+            Debug.Log("Attacking");
+
         health -= damage;
-        if(health <= 0)
+
+        if (ammo || heal)
+            Debug.Log(health);
+
+        if (health <= 0)
         {
             if (ammo || heal)
             {
