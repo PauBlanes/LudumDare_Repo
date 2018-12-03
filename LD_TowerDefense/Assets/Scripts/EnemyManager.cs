@@ -29,6 +29,7 @@ public class EnemyManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 1;
         timeRest = timeBetweenRounds;
         Round = 1;
         numNorm = 17 + (2 * (Round - 5));

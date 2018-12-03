@@ -36,6 +36,7 @@ public class Tutorial : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1;
         timeRest = timeBetweenRounds;
         Round = 0;
         wave = 0;
