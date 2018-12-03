@@ -84,4 +84,9 @@ public class SacrificeWeapon : MonoBehaviour {
         EndSacrifice();
 
     }
+    public void UnlockButton(int index)
+    {
+        buttons[index].GetComponent<Button>().enabled = true;
+        buttons[index].transform.GetChild(0).GetComponent<Image>().enabled = false;
+    }
 }

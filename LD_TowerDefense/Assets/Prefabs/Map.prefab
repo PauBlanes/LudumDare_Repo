@@ -7027,9 +7027,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  baseToRespawn:
-  - {fileID: 1983030778632332, guid: c033f669f24c91248acf109f05ed5491, type: 2}
-  - {fileID: 1104034436495992, guid: ce91d21a029116c4bb3e6714238be83f, type: 2}
+  choseSacrifice: 0
 --- !u!114 &114066432071762006
 MonoBehaviour:
   m_ObjectHideFlags: 1
