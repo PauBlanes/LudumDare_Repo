@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour {
                    GameObject newBullet = Instantiate(Bullet, this.transform.position, Quaternion.identity);
                     newBullet.GetComponent<EnemyBullet>().direction = dir;
                 }
-                else { BaseSript.health -= Attack; }
+                else { BaseSript.GetDamaged(Attack); }
                 
                 wait = attackCooldown;
             }

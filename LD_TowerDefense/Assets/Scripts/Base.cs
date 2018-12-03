@@ -57,14 +57,27 @@ public class Base : MonoBehaviour {
                 time = cooldown;
             }
         }
-
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "EnemyBullet")
         {
             health -= 15;
+        }
+    }
+
+    public void GetDamaged(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            if (ammo || heal)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
+                Destroy(gameObject);
+            }                
+            else
+                Debug.Log("GAME OVER");
         }
     }
 
