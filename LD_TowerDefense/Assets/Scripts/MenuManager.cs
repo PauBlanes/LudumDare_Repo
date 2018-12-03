@@ -29,4 +29,10 @@ public class MenuManager : MonoBehaviour {
          Application.Quit();
         #endif
     }
+
+    public void resetTime()
+    {
+        Time.timeScale = 1;
+    }
+
 }

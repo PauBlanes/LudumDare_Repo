@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         //Tirar la bomba nuclear
-        if (Input.GetMouseButtonDown(1) && SceneManager.GetActiveScene().name == "Game" 
+        if (Input.GetMouseButtonDown(1) && (SceneManager.GetActiveScene().name == "Game"|| GameObject.FindGameObjectWithTag("GameController").GetComponent<Tutorial>().tutorial==false) 
             && Mathf.Approximately(explosionGlow.GetComponent<SpriteRenderer>().color.a,0)) 
         {
             NuclearBomb();
