@@ -10,6 +10,8 @@ public class Base : MonoBehaviour {
     private float maxHealth;
 
     public bool ammo, heal;
+    public GameObject healText;
+    public GameObject ammoIcon;
 
     bool gameOver=false;
     float dead = 1;
@@ -18,12 +20,13 @@ public class Base : MonoBehaviour {
     float cooldown=5;
     float time=5;
 
-    public GameObject healthBar;
+    public GameObject healthBar;   
 
     public Text GameOverText;
+
 	// Use this for initialization
 	void Start () {
-        maxHealth = health;
+        maxHealth = health;        
 	}
 	
 	// Update is called once per frame
@@ -34,6 +37,9 @@ public class Base : MonoBehaviour {
             time -= Time.deltaTime;
             if (time <= 0)
             {
+                if (ammoIcon != null)
+                    StartCoroutine(ShowAndHide(ammoIcon, 0.75f));
+
                 int wep = Random.Range(1, 4);
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
                 if (Player.GetComponent<PlayerController>().GetUnlockedWeapons().Count>=4)
@@ -60,11 +66,13 @@ public class Base : MonoBehaviour {
         {
             time -= Time.deltaTime;
             if (time <= 0)
-            {
+            {                
                 int wep = Random.Range(1, 4);
                 GameObject Base = GameObject.FindGameObjectWithTag("Base");
                 Base.GetComponent<Base>().health += 50;
-                if(Base.GetComponent<Base>().health > 500) { Base.GetComponent<Base>().health = 500; }
+                if (healText != null)
+                    StartCoroutine(ShowAndHide(healText, 0.75f));
+                if (Base.GetComponent<Base>().health > 500) { Base.GetComponent<Base>().health = 500; }
                 time = cooldown;
             }
         }
@@ -127,6 +135,13 @@ public class Base : MonoBehaviour {
                 Destroy(enemy);
             }
         }
+    }
+
+    IEnumerator ShowAndHide(GameObject g, float time)
+    {
+        g.SetActive(true);
+        yield return new WaitForSeconds(time);
+        g.SetActive(false);
     }
 
 }
