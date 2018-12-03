@@ -34,14 +34,11 @@ public class Tutorial : MonoBehaviour {
     void Start()
     {
         timeRest = timeBetweenRounds;
-        Round = 2;
-        wave = 3;
+        Round = 0;
+        wave = 0;
         popUps[0].gameObject.SetActive(true);
         Time.timeScale = 0;
-        numNorm = 9;
-        numFast = 9;
-        numTank = 1;
-        enemiesXround = numFast + numNorm + numTank;
+
 
         /*numNorm = 17 + (2 * (Round - 5));
         numFast = 2 + (3 * (Round - 5));
@@ -532,11 +529,12 @@ public class Tutorial : MonoBehaviour {
             }
             else
             {
-                popUps[5].gameObject.SetActive(true);
-                Time.timeScale = 0;
+                
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    popUps[5].gameObject.SetActive(true);
+                    Time.timeScale = 0;
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
@@ -838,11 +836,12 @@ public class Tutorial : MonoBehaviour {
             }
             else
             {
-                popUps[7].gameObject.SetActive(true);
-                Time.timeScale = 0;
+                
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    popUps[7].gameObject.SetActive(true);
+                    Time.timeScale = 0;
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
@@ -1125,12 +1124,12 @@ public class Tutorial : MonoBehaviour {
             }
             else
             {
-                tutorial = false;
-                popUps[8].gameObject.SetActive(true);
-                Time.timeScale = 0;
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    tutorial = false;
+                    popUps[8].gameObject.SetActive(true);
+                    Time.timeScale = 0;
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
