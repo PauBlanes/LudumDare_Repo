@@ -126,8 +126,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301260483516286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.182403, y: -0.6563983, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -439.37857, y: -308.12314, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4202448616356938}
   - {fileID: 4474884865560720}
@@ -209,9 +209,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.5
 --- !u!58 &58908687363440896
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -224,9 +224,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.55
 --- !u!114 &114682657383579752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,9 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  Speed: 2
+  Speed: 1
   Health: 20
-  Attack: 3
+  Attack: 2
   dir: {x: 0, y: 0, z: 0}
   imatges:
   - {fileID: 1654040811390772}
@@ -252,7 +252,6 @@ MonoBehaviour:
   ugh: {fileID: 1823078017099590, guid: 730b17f1e2ba04548b67cd2f2540ad45, type: 2}
   coin: {fileID: 1344595789856812, guid: b0f50b22f560d5045be1f17aba7626b5, type: 2}
   Bullet: {fileID: 1756553528163776, guid: 8d585683401e05c4ca9ede33fcb8f125, type: 2}
-  ammoIcon: {fileID: 1031785402613240, guid: 21c47469765cfe0438a93f8fc0eeb081, type: 2}
   attackCooldown: 1.5
 --- !u!212 &212053289562109444
 SpriteRenderer:

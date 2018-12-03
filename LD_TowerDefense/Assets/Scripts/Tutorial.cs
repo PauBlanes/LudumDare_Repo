@@ -44,10 +44,7 @@ public class Tutorial : MonoBehaviour {
         Time.timeScale = 0;
 
 
-        numNorm = 17 + (2 * (Round - 5));
-        numFast = 2 + (3 * (Round - 5));
-        numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
-        numSpec = 15 + (1 * (Round - 5));
+        numNorm = 5;
         enemiesXround = numFast + numNorm + numTank + numSpec;
 
     }
@@ -66,8 +63,6 @@ public class Tutorial : MonoBehaviour {
 
     void Tuto()
     {
-
-
 
         //Wave 1
         if (Round == 0 && wave == 0)//ROUND 1
@@ -303,57 +298,6 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
-                    this.GetComponent<AudioSource>().Play();
-                    wave++;
-                    ronda++;
-                    WaveText.text = "WAVE " + (ronda).ToString();
-                    timeRest = timeBetweenRounds;
-                    numNorm = 10;
-                    numFast = 8;
-                    numTank = 2;
-                    enemiesXround = numFast + numNorm + numTank;
-                }
-            }
-        }
-        else if (Round == 1 && wave == 3) //ROUND 4
-        {
-            if (enemiesXround > 0)
-            {
-                timeSpawn -= Time.deltaTime;
-                if (timeSpawn <= 0)
-                {
-                    int aux = Random.Range(0, 3);
-                    int aux2 = Random.Range(2, 4);
-
-                    if (aux == 0 && numNorm > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numNorm--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-                    else if (aux == 1 && numFast > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numFast--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-                    else if (aux == 1 && numTank > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numTank--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-
-                }
-            }
-            else
-            {
-                timeRest -= Time.deltaTime;
-                if (timeRest < 0)
-                {
                     popUps[4].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     wave = 0;
@@ -513,59 +457,6 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
-                    this.GetComponent<AudioSource>().Play();
-                    wave++;
-                    ronda++;
-                    WaveText.text = "WAVE " + (ronda).ToString();
-                    timeRest = timeBetweenRounds;
-                    numNorm = 15;
-                    numFast = 12;
-                    numTank = 3;
-                    enemiesXround = numFast + numNorm + numTank;
-                }
-            }
-        }
-        else if (Round == 2 && wave == 3) //ROUND 4
-        {
-            if (enemiesXround > 0)
-            {
-                timeSpawn -= Time.deltaTime;
-                if (timeSpawn <= 0)
-                {
-                    int aux = Random.Range(0, 3);
-                    int aux2 = Random.Range(1, 4);
-
-                    if (aux == 0 && numNorm > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numNorm--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-                    else if (aux == 1 && numFast > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numFast--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-                    else if (aux == 1 && numTank > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
-                        numTank--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                    }
-
-                }
-            }
-            else
-            {
-                
-                timeRest -= Time.deltaTime;
-                if (timeRest < 0)
-                {
-                    
                     popUps[5].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     Round++;
@@ -812,88 +703,6 @@ public class Tutorial : MonoBehaviour {
             }
             else
             {
-                timeRest -= Time.deltaTime;
-                if (timeRest < 0)
-                {
-                    wave++;
-                    ronda++;
-                    WaveText.text = "WAVE " + (ronda).ToString();
-                    timeRest = timeBetweenRounds;
-                    numNorm = 12;
-                    numFast = 15;
-                    numTank = 2;
-                    numSpec = 12;
-                    enemiesXround = numFast + numNorm + numTank + numSpec;
-                    this.GetComponent<AudioSource>().Play();
-                }
-            }
-        }
-        else if (Round == 3 && wave == 3) //ROUND 4
-        {
-            if (enemiesXround > 0)
-            {
-                timeSpawn -= Time.deltaTime;
-                if (timeSpawn <= 0)
-                {
-                    int aux2 = Random.Range(0, 100);
-                    int aux = Random.Range(0, EnemyPrefabs.Length);
-                    int zone = 0;
-
-                    if (aux2 < 15)
-                    {
-                        zone = 0;
-                    }
-                    else if (aux2 < 30)
-                    {
-                        zone = 1;
-                    }
-                    else if (aux2 < 60)
-                    {
-                        zone = 2;
-                    }
-                    else if (aux2 < 100)
-                    {
-                        zone = 3;
-                    }
-
-                    if (aux == 0 && numNorm > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numNorm--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 1 && numFast > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numFast--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 2 && numTank > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numTank--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 3 && numSpec > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numSpec--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-
-                }
-            }
-            else
-            {
-                
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
@@ -1146,87 +955,6 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
-                    wave++;
-                    ronda++;
-                    WaveText.text = "WAVE " + (ronda).ToString();
-                    timeRest = timeBetweenRounds;
-                    numNorm = 17;
-                    numFast = 20;
-                    numTank = 8;
-                    numSpec = 15;
-                    enemiesXround = numFast + numNorm + numTank + numSpec;
-                    this.GetComponent<AudioSource>().Play();
-                }
-            }
-        }
-        else if (Round == 4 && wave == 3) //ROUND 4
-        {
-            if (enemiesXround > 0)
-            {
-                timeSpawn -= Time.deltaTime;
-                if (timeSpawn <= 0)
-                {
-                    int aux2 = Random.Range(0, 100);
-                    int aux = Random.Range(0, EnemyPrefabs.Length);
-                    int zone = 0;
-
-                    if (aux2 < 15)
-                    {
-                        zone = 0;
-                    }
-                    else if (aux2 < 30)
-                    {
-                        zone = 1;
-                    }
-                    else if (aux2 < 60)
-                    {
-                        zone = 2;
-                    }
-                    else if (aux2 < 100)
-                    {
-                        zone = 3;
-                    }
-
-                    if (aux == 0 && numNorm > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numNorm--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 1 && numFast > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numFast--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 2 && numTank > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numTank--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-                    else if (aux == 3 && numSpec > 0)
-                    {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
-                        numSpec--;
-                        enemiesXround--;
-                        timeSpawn = timeBetweenEnemies;
-                        Debug.Log(zone);
-                    }
-
-                }
-            }
-            else
-            {
-                timeRest -= Time.deltaTime;
-                if (timeRest < 0)
-                {
                     tutorial = false;
                     popUps[8].gameObject.SetActive(true);
                     Time.timeScale = 0;
@@ -1245,7 +973,6 @@ public class Tutorial : MonoBehaviour {
                 }
             }
         }
-
 
     }
 
