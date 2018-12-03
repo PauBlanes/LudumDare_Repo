@@ -954,12 +954,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1033765070913094, guid: 0bbad590901b4884e86ae10c17bc5a3f,
     type: 2}
   m_PrefabInternal: {fileID: 137691605}
---- !u!114 &847315149 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114534404718445118, guid: 0bbad590901b4884e86ae10c17bc5a3f,
-    type: 2}
-  m_PrefabInternal: {fileID: 137691605}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &882154119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,27 +1391,27 @@ Prefab:
         type: 2}
       propertyPath: ui_manager.ammoTexts.Array.data[0]
       value: 
-      objectReference: {fileID: 847315149}
+      objectReference: {fileID: 531855632}
     - target: {fileID: 114303352655009542, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: ui_manager.ammoTexts.Array.data[1]
       value: 
-      objectReference: {fileID: 531855632}
+      objectReference: {fileID: 489045674}
     - target: {fileID: 114303352655009542, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: ui_manager.ammoTexts.Array.data[2]
       value: 
-      objectReference: {fileID: 489045674}
+      objectReference: {fileID: 1805503270}
     - target: {fileID: 114303352655009542, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: ui_manager.ammoTexts.Array.data[3]
       value: 
-      objectReference: {fileID: 1805503270}
+      objectReference: {fileID: 441782499}
     - target: {fileID: 114303352655009542, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: ui_manager.revolverText
       value: 
-      objectReference: {fileID: 441782499}
+      objectReference: {fileID: 1137605646}
     - target: {fileID: 114303352655009542, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: ui_manager.removed.Array.data[0]
@@ -1551,6 +1545,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1128873874}
   m_CullTransparentMesh: 0
+--- !u!114 &1137605646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114663186146756568, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 137691605}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1208707349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114771689570113616, guid: 0bbad590901b4884e86ae10c17bc5a3f,

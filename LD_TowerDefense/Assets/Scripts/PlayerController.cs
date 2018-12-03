@@ -46,7 +46,15 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         //Només té la pistola i és la que té seleccionada
         unlockedWeapons.Add(allWeapons[0]);
-        equipedWeapon = unlockedWeapons[0];     
+        equipedWeapon = unlockedWeapons[0]; 
+        
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            AddNextWeapon();
+            AddNextWeapon();
+            AddNextWeapon();
+            AddNextWeapon();
+        }
     }
 	
 	// Update is called once per frame
@@ -251,6 +259,7 @@ public class PlayerController : MonoBehaviour {
     
     public void AddNextWeapon()
     {
+        GetComponent<SacrificeWeapon>().UnlockButton(unlockedWeapons.Count - 1);
         ui_manager.UnlockWeapon(unlockedWeapons.Count-1);
         unlockedWeapons.Add(allWeapons[unlockedWeapons.Count]);        
     }
