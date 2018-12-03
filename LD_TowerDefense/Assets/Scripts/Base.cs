@@ -90,7 +90,7 @@ public class Base : MonoBehaviour {
 
     public void KillNearEnemies()
     {
-        float destroyRadius = 5;
+        float destroyRadius = 10;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {

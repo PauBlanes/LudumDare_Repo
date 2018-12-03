@@ -81,11 +81,6 @@ public class PlayerController : MonoBehaviour {
         //CANVIAR DE ARMAS
         ChangeWeapon();
 
-        //Hacks develop
-        if (Input.GetKeyDown(KeyCode.R)){
-            AddNextWeapon();
-        }
-
         //UI para las armas
         foreach (Weapon w in unlockedWeapons)
         {
