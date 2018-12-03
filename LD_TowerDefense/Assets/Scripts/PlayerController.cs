@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     private float nextFire; //contador para hacer el ratio de disparo
     public Transform fireSpawn; //posicio on spawnegen les bales
 
+    public int Score;
+    public Text ScoreText;
     //movement
     /*public float speed;    
     Vector3 dir = Vector3.zero;*/
@@ -310,6 +313,13 @@ public class PlayerController : MonoBehaviour {
         explosionGlow.GetComponent<SpriteRenderer>().color = finalCol;
 
     }
+
+    public void gainxp(int xp)
+    {
+        Score += xp;
+        ScoreText.text = Score.ToString();
+    }
+
     /*bool Move()
     {
         //Rotations

@@ -184,6 +184,8 @@ MonoBehaviour:
     canMaintainFire: 1
     ammo: 100
   fireSpawn: {fileID: 4151914258456094}
+  Score: 0
+  ScoreText: {fileID: 0}
   ui_manager:
     lockIcons:
     - {fileID: 0}

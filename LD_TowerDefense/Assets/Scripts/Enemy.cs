@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour {
     Vector3 targetPos;
     Vector3 myPos;
 
+    PlayerController player;
+
     //ATTACK
     public float attackCooldown=1;
     float wait=0;
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour {
         //Target = GameObject.FindGameObjectWithTag ( "Base" );
         //setDir();
        GameManager = GameObject.FindGameObjectWithTag("GameController");
+       player= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 	
 	// Update is called once per frame
@@ -140,7 +143,8 @@ public class Enemy : MonoBehaviour {
             }
             Instantiate(Blood, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            GameManager.GetComponent<EnemyManager>().Score +=xp;
+
+            player.gainxp(xp);
         }
 
 
