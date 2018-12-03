@@ -28,7 +28,7 @@ public class Weapon {
     //Revolver
     private int revolverMaxAmmo = 6;    
     private float rechargeTime = 5;
-    private int revolverCountAmmo;
+    private int revolverCountAmmo = 6;
     
     public void Shoot (Vector3 spawnPoint, Vector3 direction)
     {
@@ -53,13 +53,13 @@ public class Weapon {
     }
     public void ShootRevolver(Vector3 spawnPoint, Vector3 direction, PlayerController pC)
     {        
-        if (revolverCountAmmo < revolverMaxAmmo)
+        if (revolverCountAmmo > 0)
         {            
             Shoot(spawnPoint, direction);
-            revolverCountAmmo++;
+            revolverCountAmmo--;
             GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().health -= 15;
         }
-        else if (revolverCountAmmo == revolverMaxAmmo)
+        else if (revolverCountAmmo == 0)
         {            
             pC.StartRevolverWait(rechargeTime);
             revolverCountAmmo++;
@@ -67,8 +67,10 @@ public class Weapon {
     }
     
     public void ResetRevolver()
-    {        
-        revolverCountAmmo = 0;
+    {
+        int newBullets = Mathf.Clamp(ammo - revolverMaxAmmo, 0, 6);
+        ammo -= newBullets;
+        revolverCountAmmo = newBullets;
     }
     
     public int GetRevolverAmmo()

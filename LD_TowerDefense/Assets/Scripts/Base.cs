@@ -30,7 +30,8 @@ public class Base : MonoBehaviour {
                 {
                     Player.GetComponent<PlayerController>().GetUnlockedWeapons()[1].ammo += 50;
                     Player.GetComponent<PlayerController>().GetUnlockedWeapons()[2].ammo += 5;
-                    Player.GetComponent<PlayerController>().GetUnlockedWeapons()[3].ammo += 3;
+                    Player.GetComponent<PlayerController>().GetUnlockedWeapons()[3].ammo += 3;                    
+                    Player.GetComponent<PlayerController>().GetUnlockedWeapons()[4].ammo += 6;
                 }
                 else if (Player.GetComponent<PlayerController>().GetUnlockedWeapons().Count >= 3)
                 {
