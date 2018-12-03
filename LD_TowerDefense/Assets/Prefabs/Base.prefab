@@ -171,3 +171,4 @@ MonoBehaviour:
   health: 500
   ammo: 0
   heal: 0
+  GameOverText: {fileID: 0}

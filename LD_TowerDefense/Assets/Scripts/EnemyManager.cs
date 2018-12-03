@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour {
 
     public int Round=1;
 
-    public Text GameOverText;
     //NO TOCAR
     public int enemiesXround=5;
     float timeBetweenEnemies=0.5f;
@@ -44,10 +43,6 @@ public class EnemyManager : MonoBehaviour {
 	void Update () {
         Horde(); 
 	}
-    public void GameOver()
-    {
-        GameOverText.gameObject.SetActive(true);
-    }
 
     void Horde()
     {

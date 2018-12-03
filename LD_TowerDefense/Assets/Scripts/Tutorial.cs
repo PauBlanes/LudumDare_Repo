@@ -37,7 +37,7 @@ public class Tutorial : MonoBehaviour {
     void Start()
     {
         timeRest = timeBetweenRounds;
-        Round = 6;
+        Round = 0;
         wave = 0;
         popUps[0].gameObject.SetActive(true);
         Time.timeScale = 0;
