@@ -56,6 +56,12 @@ public class Tutorial : MonoBehaviour {
         else { Horde(); }
 
     }
+
+    public void PassRound()
+    {
+        enemiesXround = 0;
+    }
+
     public void GameOver()
     {
         GameOverText.gameObject.SetActive(true);

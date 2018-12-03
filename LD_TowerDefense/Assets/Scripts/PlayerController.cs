@@ -303,7 +303,13 @@ public class PlayerController : MonoBehaviour {
             {
                 Destroy(e);
             }
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().Round++;
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().Round++;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().WaveText.text = "ROUND " + GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().Round.ToString();
+        }            
+        else
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<Tutorial>().PassRound();
 
         yield return new WaitForSeconds(0.75f);
 
