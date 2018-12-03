@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Base : MonoBehaviour {
 
     public float health=5;
+    private float maxHealth;
 
     public bool ammo, heal;
 
@@ -17,10 +18,12 @@ public class Base : MonoBehaviour {
     float cooldown=5;
     float time=5;
 
+    public GameObject healthBar;
+
     public Text GameOverText;
 	// Use this for initialization
 	void Start () {
-		
+        maxHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -80,13 +83,15 @@ public class Base : MonoBehaviour {
     {
         if (other.tag == "EnemyBullet")
         {
-            health -= 15;
+            GetDamaged(15);
         }
     }
 
     public void GetDamaged(float damage)
     {
-        health -= damage;       
+        
+        health -= damage;
+        healthBar.GetComponent<Image>().fillAmount = health/maxHealth;
 
         if (health <= 0)
         {           

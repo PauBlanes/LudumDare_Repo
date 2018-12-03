@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour {
                     numNorm--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    Debug.Log(zone);
+                    
                 }
                 else if (aux == 1 && numFast > 0)
                 {
@@ -86,7 +86,7 @@ public class EnemyManager : MonoBehaviour {
                     numFast--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    Debug.Log(zone);
+                    
                 }
                 else if (aux == 2 && numTank > 0)
                 {
@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour {
                     numTank--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    Debug.Log(zone);
+                    
                 }
                 else if (aux == 3 && numSpec > 0)
                 {
@@ -102,7 +102,7 @@ public class EnemyManager : MonoBehaviour {
                     numSpec--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    Debug.Log(zone);
+                    
                 }
 
             }
