@@ -62,7 +62,10 @@ public class SacrificeWeapon : MonoBehaviour {
         baseAttacked.GetComponent<Base>().KillNearEnemies();
 
         if (choseSacrifice)
-            baseAttacked.GetComponent<Base>().health = 300;
+        {
+            baseAttacked.GetComponent<Base>().SetHealth((int)baseAttacked.GetComponent<Base>().health);
+            choseSacrifice = false;
+        }
         else
             Destroy(baseAttacked);
         

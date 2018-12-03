@@ -10652,6 +10652,11 @@ Prefab:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 294355015}
+    - target: {fileID: 114343405661850676, guid: 7465ba01c7454934cb280c6306d35e26,
+        type: 2}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7465ba01c7454934cb280c6306d35e26, type: 2}
   m_IsPrefabAsset: 0
