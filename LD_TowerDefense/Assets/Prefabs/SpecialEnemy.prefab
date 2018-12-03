@@ -252,6 +252,7 @@ MonoBehaviour:
   ugh: {fileID: 1823078017099590, guid: 730b17f1e2ba04548b67cd2f2540ad45, type: 2}
   coin: {fileID: 1344595789856812, guid: b0f50b22f560d5045be1f17aba7626b5, type: 2}
   Bullet: {fileID: 1756553528163776, guid: 8d585683401e05c4ca9ede33fcb8f125, type: 2}
+  ammoIcon: {fileID: 1031785402613240, guid: 21c47469765cfe0438a93f8fc0eeb081, type: 2}
   attackCooldown: 1.5
 --- !u!212 &212053289562109444
 SpriteRenderer:
