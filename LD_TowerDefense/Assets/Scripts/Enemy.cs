@@ -42,6 +42,11 @@ public class Enemy : MonoBehaviour {
         
         if (inRange == true)
         {
+            if (Target == null)//per quan es destrueixen les petites
+            { 
+                Target = GameObject.FindGameObjectWithTag("Base");
+                setDir();
+            }
 
             wait-= Time.deltaTime;
             if (wait <= 0)
@@ -64,8 +69,8 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Base" || other.tag == "building")
-        {
+        if (other.tag == "Base" || other.tag == "Building")
+        {            
             BaseSript = other.GetComponent<Base>();
             inRange = true;
         }
@@ -87,7 +92,7 @@ public class Enemy : MonoBehaviour {
         dir = new Vector3(targetPos.x - myPos.x, targetPos.y - myPos.y, targetPos.z - myPos.z);
         dir = Vector3.Normalize(dir);
         if ((Target.tag == "Base"|| Target.tag == "Building"))
-        {
+        {            
             imatges[1].SetActive(true);
             imatges[0].SetActive(false);
             if(Bullet != null)

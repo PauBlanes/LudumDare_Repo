@@ -9,7 +9,9 @@ public class SacrificeWeapon : MonoBehaviour {
 
     public List<GameObject> buttons = new List<GameObject>();
 
-    public GameObject baseToRespawn;
+    public GameObject[] baseToRespawn;
+    private Vector3 posToRespawn;
+    private int indexToSpawn;
 
     // Use this for initialization
     void Start()
@@ -27,18 +29,18 @@ public class SacrificeWeapon : MonoBehaviour {
             popup.SetActive(false);       
     }
 
-    public void StartSacrifice(GameObject baseKilled)
+    public void StartSacrifice(Vector3 p2R, int baseToSpawn)
     {
         Time.timeScale = 0;
         popup.SetActive(true);
 
-        baseToRespawn = baseKilled; 
+        posToRespawn = p2R; 
     }
     public void EndSacrifice()
     {
         Time.timeScale = 1;
         popup.SetActive(false);
-        Instantiate(baseToRespawn, baseToRespawn.transform.position, Quaternion.identity);
+        Instantiate(baseToRespawn[indexToSpawn], posToRespawn, Quaternion.identity);
     }
 
     public void Choice(int weapon)

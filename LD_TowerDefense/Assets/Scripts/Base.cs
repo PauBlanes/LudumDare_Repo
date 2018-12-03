@@ -68,21 +68,20 @@ public class Base : MonoBehaviour {
 
     public void GetDamaged(float damage)
     {
-        if (ammo || heal)
-            Debug.Log("Attacking");
-
-        health -= damage;
-
-        if (ammo || heal)
-            Debug.Log(health);
+        health -= damage;       
 
         if (health <= 0)
         {
-            if (ammo || heal)
+            if (ammo)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(transform.position, 0);
                 Destroy(gameObject);
-            }                
+            }
+            else if (heal)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(transform.position, 1);
+                Destroy(gameObject);
+            }
             else
                 Debug.Log("GAME OVER");
         }
