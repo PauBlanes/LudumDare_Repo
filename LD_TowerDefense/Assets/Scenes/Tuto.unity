@@ -1208,6 +1208,26 @@ Prefab:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114023513117373114, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 71d022730ea76aa46ae17805da57d733,
+        type: 3}
+    - target: {fileID: 1161283735736452, guid: 0bbad590901b4884e86ae10c17bc5a3f, type: 2}
+      propertyPath: m_Name
+      value: Granade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320170286468848, guid: 0bbad590901b4884e86ae10c17bc5a3f, type: 2}
+      propertyPath: m_Name
+      value: Revolver
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082057422029690, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d8e469f07e79124f93933d6fe44b19c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bbad590901b4884e86ae10c17bc5a3f, type: 2}
   m_IsPrefabAsset: 0
