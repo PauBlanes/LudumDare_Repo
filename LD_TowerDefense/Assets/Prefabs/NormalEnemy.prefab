@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1046443450746160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.0996084, y: -1.3851838, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4628829455379928}
@@ -252,6 +252,7 @@ MonoBehaviour:
   ugh: {fileID: 1823078017099590, guid: 730b17f1e2ba04548b67cd2f2540ad45, type: 2}
   coin: {fileID: 1344595789856812, guid: b0f50b22f560d5045be1f17aba7626b5, type: 2}
   Bullet: {fileID: 0}
+  ammoIcon: {fileID: 1031785402613240, guid: 21c47469765cfe0438a93f8fc0eeb081, type: 2}
   attackCooldown: 1.5
 --- !u!212 &212003303636180890
 SpriteRenderer:
