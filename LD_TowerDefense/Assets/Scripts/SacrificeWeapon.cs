@@ -36,9 +36,7 @@ public class SacrificeWeapon : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKey(KeyCode.Escape) && popup.activeInHierarchy)
-            popup.SetActive(false);       
+                  
     }
 
     public void StartSacrifice(GameObject b)

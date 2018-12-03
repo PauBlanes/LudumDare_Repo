@@ -296,6 +296,7 @@ public class PlayerController : MonoBehaviour {
         }        
         //Fer petit el cercle
         visionCircle.transform.localScale -= new Vector3(visionDecrease, visionDecrease, 0);
+        
         //Destruir enemigos
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject e in enemies)
