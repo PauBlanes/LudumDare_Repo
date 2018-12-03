@@ -37,17 +37,17 @@ public class Tutorial : MonoBehaviour {
     void Start()
     {
         timeRest = timeBetweenRounds;
-        Round = 0;
+        Round = 6;
         wave = 0;
         popUps[0].gameObject.SetActive(true);
         Time.timeScale = 0;
 
 
-        /*numNorm = 17 + (2 * (Round - 5));
+        numNorm = 17 + (2 * (Round - 5));
         numFast = 2 + (3 * (Round - 5));
         numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
         numSpec = 15 + (1 * (Round - 5));
-        enemiesXround = numFast + numNorm + numTank + numSpec;*/
+        enemiesXround = numFast + numNorm + numTank + numSpec;
 
     }
 
@@ -579,27 +579,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -607,6 +606,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -614,6 +614,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -621,6 +622,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -628,6 +630,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -656,27 +659,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -684,6 +686,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -691,6 +694,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -698,6 +702,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -705,6 +710,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -733,27 +739,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -761,6 +766,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -768,6 +774,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -775,6 +782,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -782,6 +790,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -810,27 +819,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -838,6 +846,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -845,6 +854,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -852,6 +862,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -859,6 +870,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -894,27 +906,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -922,6 +933,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -929,6 +941,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -936,6 +949,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -943,6 +957,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -971,27 +986,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -999,6 +1013,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -1006,6 +1021,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -1013,6 +1029,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -1020,6 +1037,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -1048,27 +1066,26 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
                     int zone = 0;
 
-                    if (aux < 15)
+                    if (aux2 < 15)
                     {
                         zone = 0;
                     }
-                    else if (aux < 30)
+                    else if (aux2 < 30)
                     {
                         zone = 1;
                     }
-                    else if (aux < 60)
+                    else if (aux2 < 60)
                     {
                         zone = 2;
                     }
-                    else if (aux < 100)
+                    else if (aux2 < 100)
                     {
                         zone = 3;
                     }
-
 
                     if (aux == 0 && numNorm > 0)
                     {
@@ -1076,6 +1093,7 @@ public class Tutorial : MonoBehaviour {
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
@@ -1083,6 +1101,7 @@ public class Tutorial : MonoBehaviour {
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
@@ -1090,6 +1109,7 @@ public class Tutorial : MonoBehaviour {
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
@@ -1097,6 +1117,7 @@ public class Tutorial : MonoBehaviour {
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -1125,36 +1146,58 @@ public class Tutorial : MonoBehaviour {
                 timeSpawn -= Time.deltaTime;
                 if (timeSpawn <= 0)
                 {
-                    int aux = Random.Range(0, 100);
-                    int aux2 = Random.Range(0, 4);
+                    int aux2 = Random.Range(0, 100);
+                    int aux = Random.Range(0, EnemyPrefabs.Length);
+                    int zone = 0;
+
+                    if (aux2 < 15)
+                    {
+                        zone = 0;
+                    }
+                    else if (aux2 < 30)
+                    {
+                        zone = 1;
+                    }
+                    else if (aux2 < 60)
+                    {
+                        zone = 2;
+                    }
+                    else if (aux2 < 100)
+                    {
+                        zone = 3;
+                    }
 
                     if (aux == 0 && numNorm > 0)
                     {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
+                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
                         numNorm--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 1 && numFast > 0)
                     {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
+                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
                         numFast--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 2 && numTank > 0)
                     {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
+                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
                         numTank--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
                     else if (aux == 3 && numSpec > 0)
                     {
-                        Instantiate(EnemyPrefabs[aux], SpawnPoints[aux2].transform.position, Quaternion.identity);
+                        Instantiate(EnemyPrefabs[aux], SpawnPoints[zone].transform.position, Quaternion.identity);
                         numSpec--;
                         enemiesXround--;
                         timeSpawn = timeBetweenEnemies;
+                        Debug.Log(zone);
                     }
 
                 }
@@ -1192,27 +1235,26 @@ public class Tutorial : MonoBehaviour {
             timeSpawn -= Time.deltaTime;
             if (timeSpawn <= 0)
             {
-                int aux = Random.Range(0, 100);
-                int aux2 = Random.Range(0, EnemyPrefabs.Length);
+                int aux2 = Random.Range(0, 100);
+                int aux = Random.Range(0, EnemyPrefabs.Length);
                 int zone = 0;
 
-                if (aux < 15)
+                if (aux2 < 15)
                 {
                     zone = 0;
                 }
-                else if (aux < 30)
+                else if (aux2 < 30)
                 {
                     zone = 1;
                 }
-                else if (aux < 60)
+                else if (aux2 < 60)
                 {
                     zone = 2;
                 }
-                else if (aux < 100)
+                else if (aux2 < 100)
                 {
                     zone = 3;
                 }
-
 
                 if (aux == 0 && numNorm > 0)
                 {
@@ -1220,6 +1262,7 @@ public class Tutorial : MonoBehaviour {
                     numNorm--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 1 && numFast > 0)
                 {
@@ -1227,6 +1270,7 @@ public class Tutorial : MonoBehaviour {
                     numFast--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 2 && numTank > 0)
                 {
@@ -1234,6 +1278,7 @@ public class Tutorial : MonoBehaviour {
                     numTank--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
                 else if (aux == 3 && numSpec > 0)
                 {
@@ -1241,6 +1286,7 @@ public class Tutorial : MonoBehaviour {
                     numSpec--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
+                    Debug.Log(zone);
                 }
 
             }
