@@ -82,7 +82,8 @@ public class PlayerController : MonoBehaviour {
         }
 
         //Tirar la bomba nuclear
-        if (Input.GetMouseButtonDown(1) && SceneManager.GetActiveScene().name == "Game") 
+        if (Input.GetMouseButtonDown(1) && SceneManager.GetActiveScene().name == "Game" 
+            && Mathf.Approximately(explosionGlow.GetComponent<SpriteRenderer>().color.a,0)) 
         {
             NuclearBomb();
         }
@@ -269,7 +270,7 @@ public class PlayerController : MonoBehaviour {
 
     void NuclearBomb()
     {
-        if (visionCircle.transform.localScale.x - visionDecrease > 1.5f)
+        if (visionCircle.transform.localScale.x > 4)
         {
             //Matar enemics
             
@@ -305,6 +306,9 @@ public class PlayerController : MonoBehaviour {
             explosionGlow.GetComponent<SpriteRenderer>().color = newColor;
             yield return null;
         }
+        Color finalCol = new Color(1, 1, 1, 0);
+        explosionGlow.GetComponent<SpriteRenderer>().color = finalCol;
+
     }
     /*bool Move()
     {

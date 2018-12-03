@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //PAUSE MENU
-        if (Input.GetKeyDown(KeyCode.Escape) && !GameObject.FindGameObjectWithTag("SacrificePopup").activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && GameObject.FindGameObjectWithTag("SacrificePopup") == null)
         {
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
             GetComponent<PlayerController>().enabled = !GetComponent<PlayerController>().enabled;
@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour {
     public void Restart()
     {
         Time.timeScale = 1;
-        EditorSceneManager.LoadScene(EditorSceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Resume()
@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Exit()
     {
-        EditorSceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void HowToPlay()
