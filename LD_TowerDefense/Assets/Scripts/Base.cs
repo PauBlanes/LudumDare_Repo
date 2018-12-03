@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour {
 
@@ -8,9 +10,14 @@ public class Base : MonoBehaviour {
 
     public bool ammo, heal;
 
+    bool gameOver=false;
+    float dead = 1;
+    public GameObject Boom;
+
     float cooldown=5;
     float time=5;
 
+    public Text GameOverText;
 	// Use this for initialization
 	void Start () {
 		
@@ -58,6 +65,16 @@ public class Base : MonoBehaviour {
                 time = cooldown;
             }
         }
+
+        if (gameOver)
+        {
+            dead -= Time.deltaTime;
+            if (dead < 0)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -84,7 +101,11 @@ public class Base : MonoBehaviour {
                 
             }
             else {
+                
                 Debug.Log("GAME OVER");
+                GameOverText.gameObject.SetActive(true);
+                gameOver = true;
+                Time.timeScale = 0.2f;
             }
                            
         }

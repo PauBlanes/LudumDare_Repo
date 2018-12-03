@@ -3523,7 +3523,6 @@ MonoBehaviour:
   - {fileID: 1813705448600816, guid: 5e0c8317e8cb0d64d99d005398c8b387, type: 2}
   - {fileID: 1301260483516286, guid: df56aeea12a4ddb4d908c0054eaf4dce, type: 2}
   Round: 0
-  GameOverText: {fileID: 294355015}
   enemiesXround: 5
   WaveText: {fileID: 687064093}
 --- !u!4 &475519472
@@ -10040,11 +10039,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 23892044885563456, guid: 7465ba01c7454934cb280c6306d35e26,
+    - target: {fileID: 114343405661850676, guid: 7465ba01c7454934cb280c6306d35e26,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 294355015}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7465ba01c7454934cb280c6306d35e26, type: 2}
   m_IsPrefabAsset: 0
@@ -10576,7 +10575,7 @@ GameObject:
   - component: {fileID: 1573667514}
   - component: {fileID: 294355015}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
