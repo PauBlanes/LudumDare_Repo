@@ -34,7 +34,7 @@ public class UIManager {
                 ammoTexts[0].text = w.ammo.ToString();
                 break;
             case Weapon.WeaponType.Revolver:
-                ammoTexts[3].text = Mathf.Clamp((6-w.GetRevolverAmmo()),0,6).ToString();
+                ammoTexts[3].text = (w.GetRevolverAmmo()).ToString();
                 break;
             case Weapon.WeaponType.Lanzagranadas:
                 ammoTexts[2].text = w.ammo.ToString();

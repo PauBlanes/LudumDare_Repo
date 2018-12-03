@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SacrificeWeapon : MonoBehaviour {
 
@@ -19,12 +20,14 @@ public class SacrificeWeapon : MonoBehaviour {
         popup = GameObject.FindGameObjectWithTag("SacrificePopup");
         popup.SetActive(false);
 
-        foreach (GameObject b in buttons)
+        if (SceneManager.GetActiveScene().name != "Game")
         {
-            b.GetComponent<Button>().enabled = false;
-            b.transform.GetChild(0).GetComponent<Image>().enabled = true;
-        }
-        
+            foreach (GameObject b in buttons)
+            {
+                b.GetComponent<Button>().enabled = false;
+                b.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            }
+        }       
     }
 
     // Update is called once per frame
@@ -87,6 +90,6 @@ public class SacrificeWeapon : MonoBehaviour {
     public void UnlockButton(int index)
     {
         buttons[index].GetComponent<Button>().enabled = true;
-        buttons[index].transform.GetChild(0).GetComponent<Image>().enabled = false;
+        buttons[index].transform.GetChild(0).GetComponent<Image>().enabled = false;        
     }
 }
