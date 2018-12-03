@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour {
     public int Score = 0;
 
+    public int ronda = 1;
+
     public GameObject[] SpawnPoints;
 
     public GameObject[] EnemyPrefabs;
@@ -87,7 +89,8 @@ public class Tutorial : MonoBehaviour {
                     popUps[1].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     enemiesXround = 7;
                     timeRest = timeBetweenRounds;
                 }
@@ -120,7 +123,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     enemiesXround = 10;
                     timeRest = timeBetweenRounds;
                 }
@@ -155,7 +159,8 @@ public class Tutorial : MonoBehaviour {
                     Time.timeScale = 0;
                     wave = 0;
                     Round++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     enemiesXround = 10;
                     timeRest = timeBetweenRounds;
@@ -199,7 +204,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 9;
                     numFast = 6;
@@ -242,7 +248,8 @@ public class Tutorial : MonoBehaviour {
                     popUps[3].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 7;
                     numFast = 7;
@@ -291,7 +298,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 10;
                     numFast = 8;
@@ -343,7 +351,8 @@ public class Tutorial : MonoBehaviour {
                     Time.timeScale = 0;
                     wave = 0;
                     Round++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     timeRest = timeBetweenRounds;
                     numNorm = 9;
@@ -395,7 +404,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 10;
                     numFast = 13;
@@ -444,7 +454,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 10;
                     numFast = 14;
@@ -493,7 +504,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 15;
                     numFast = 12;
@@ -547,7 +559,8 @@ public class Tutorial : MonoBehaviour {
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 15;
                     numFast = 12;
@@ -625,7 +638,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 10;
                     numFast = 10;
@@ -701,7 +715,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 10;
                     numFast = 13;
@@ -777,7 +792,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 12;
                     numFast = 15;
@@ -858,6 +874,8 @@ public class Tutorial : MonoBehaviour {
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 13;
                     numFast = 12;
@@ -935,7 +953,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 13;
                     numFast = 12;
@@ -1011,7 +1030,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 15;
                     numFast = 15;
@@ -1087,7 +1107,8 @@ public class Tutorial : MonoBehaviour {
                 if (timeRest < 0)
                 {
                     wave++;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 17;
                     numFast = 20;
@@ -1149,7 +1170,8 @@ public class Tutorial : MonoBehaviour {
                     Round++;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     wave = 0;
-                    WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                    ronda++;
+                    WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 19;
                     numFast = 23;
@@ -1230,7 +1252,8 @@ public class Tutorial : MonoBehaviour {
             {
                 Round++;
                 wave = 0;
-                WaveText.text = "WAVE " + (wave + Round + 1).ToString();
+                ronda++;
+                WaveText.text = "WAVE " + (ronda).ToString();
                 timeRest = timeBetweenRounds;
                 numNorm = 17 + (2 * (Round - 5));
                 numFast = 2 + (3 * (Round - 5));
