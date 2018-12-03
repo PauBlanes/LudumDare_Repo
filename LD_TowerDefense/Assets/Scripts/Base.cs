@@ -105,11 +105,13 @@ public class Base : MonoBehaviour {
         {           
             if (ammo)
             {
+                this.GetComponent<AudioSource>().Play();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
                 
             }
             else if (heal)
             {
+                this.GetComponent<AudioSource>().Play();
                 GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
                 
             }

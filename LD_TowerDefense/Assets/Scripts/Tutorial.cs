@@ -91,6 +91,7 @@ public class Tutorial : MonoBehaviour {
                     wave++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
+                    this.GetComponent<AudioSource>().Play();
                     enemiesXround = 7;
                     timeRest = timeBetweenRounds;
                 }
@@ -124,6 +125,7 @@ public class Tutorial : MonoBehaviour {
                 {
                     wave++;
                     ronda++;
+                    this.GetComponent<AudioSource>().Play();
                     WaveText.text = "WAVE " + (ronda).ToString();
                     enemiesXround = 10;
                     timeRest = timeBetweenRounds;
@@ -160,6 +162,7 @@ public class Tutorial : MonoBehaviour {
                     wave = 0;
                     Round++;
                     ronda++;
+                    this.GetComponent<AudioSource>().Play();
                     WaveText.text = "WAVE " + (ronda).ToString();
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNextWeapon();
                     enemiesXround = 10;
@@ -205,6 +208,7 @@ public class Tutorial : MonoBehaviour {
                 {
                     wave++;
                     ronda++;
+                    this.GetComponent<AudioSource>().Play();
                     WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
                     numNorm = 9;
@@ -248,6 +252,7 @@ public class Tutorial : MonoBehaviour {
                     popUps[3].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     wave++;
+                    this.GetComponent<AudioSource>().Play();
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
                     timeRest = timeBetweenRounds;
@@ -297,6 +302,7 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    this.GetComponent<AudioSource>().Play();
                     wave++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
@@ -350,6 +356,7 @@ public class Tutorial : MonoBehaviour {
                     popUps[4].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     wave = 0;
+                    this.GetComponent<AudioSource>().Play();
                     Round++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
@@ -403,6 +410,7 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    this.GetComponent<AudioSource>().Play();
                     wave++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
@@ -453,6 +461,7 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    this.GetComponent<AudioSource>().Play();
                     wave++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
@@ -503,6 +512,7 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    this.GetComponent<AudioSource>().Play();
                     wave++;
                     ronda++;
                     WaveText.text = "WAVE " + (ronda).ToString();
@@ -554,6 +564,7 @@ public class Tutorial : MonoBehaviour {
                 timeRest -= Time.deltaTime;
                 if (timeRest < 0)
                 {
+                    
                     popUps[5].gameObject.SetActive(true);
                     Time.timeScale = 0;
                     Round++;
@@ -566,6 +577,7 @@ public class Tutorial : MonoBehaviour {
                     numFast = 12;
                     numTank = 3;
                     numSpec = 6;
+                    this.GetComponent<AudioSource>().Play();
                     enemiesXround = numFast + numNorm + numTank + numSpec;
                 }
             }
@@ -649,6 +661,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 2;
                     numSpec = 8;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -729,6 +742,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 3;
                     numSpec = 10;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -809,6 +823,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 2;
                     numSpec = 12;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -894,6 +909,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 3;
                     numSpec = 12;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -976,6 +992,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 8;
                     numSpec = 12;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -1056,6 +1073,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 5;
                     numSpec = 15;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -1136,6 +1154,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 8;
                     numSpec = 15;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -1221,6 +1240,7 @@ public class Tutorial : MonoBehaviour {
                     numTank = 8;
                     numSpec = 16;
                     enemiesXround = numFast + numNorm + numTank + numSpec;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -1306,6 +1326,7 @@ public class Tutorial : MonoBehaviour {
                 numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
                 numSpec = 15 + (1 * (Round - 5));
                 enemiesXround = numFast + numNorm + numTank + numSpec;
+                this.GetComponent<AudioSource>().Play();
             }
         }
     }
