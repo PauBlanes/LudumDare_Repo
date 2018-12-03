@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
     Vector3 targetPos;
     Vector3 myPos;
 
-    PlayerController player;
+    PlayerController player;    
 
     //ATTACK
     public float attackCooldown=1;
@@ -146,8 +146,9 @@ public class Enemy : MonoBehaviour {
                         Player.GetComponent<PlayerController>().GetUnlockedWeapons()[wep].ammo += 6;
                         break;
                 }
-                
-            }
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().DropAmmo(transform.position);
+            }            
+            
             Instantiate(Blood, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
 

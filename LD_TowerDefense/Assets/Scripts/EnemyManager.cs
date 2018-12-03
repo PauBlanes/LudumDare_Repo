@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour
+{
 
-    public int Score=0;
+    public int Score = 0;
 
     public GameObject[] SpawnPoints;
 
     public GameObject[] EnemyPrefabs;
 
-    public int Round=1;
+    public int Round = 1;
 
+    public GameObject ammoIcon;
+    
     //NO TOCAR
-    public int enemiesXround=5;
-    float timeBetweenEnemies=0.5f;
-    float timeBetweenRounds=7;
+    public int enemiesXround = 5;
+    float timeBetweenEnemies = 0.5f;
+    float timeBetweenRounds = 7;
     int enemyMultiplayer = 35;
 
     public Text WaveText;
@@ -24,11 +27,12 @@ public class EnemyManager : MonoBehaviour {
     int numNorm, numFast, numTank, numSpec;
 
 
-    float timeSpawn=0;
+    float timeSpawn = 0;
     float timeRest;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         Time.timeScale = 1;
         timeRest = timeBetweenRounds;
         Round = 1;
@@ -39,11 +43,12 @@ public class EnemyManager : MonoBehaviour {
         enemiesXround = numFast + numNorm + numTank + numSpec;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Horde(); 
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        Horde();
+    }
 
     void Horde()
     {
@@ -79,7 +84,7 @@ public class EnemyManager : MonoBehaviour {
                     numNorm--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    
+
                 }
                 else if (aux == 1 && numFast > 0)
                 {
@@ -87,7 +92,7 @@ public class EnemyManager : MonoBehaviour {
                     numFast--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    
+
                 }
                 else if (aux == 2 && numTank > 0)
                 {
@@ -95,7 +100,7 @@ public class EnemyManager : MonoBehaviour {
                     numTank--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    
+
                 }
                 else if (aux == 3 && numSpec > 0)
                 {
@@ -103,7 +108,7 @@ public class EnemyManager : MonoBehaviour {
                     numSpec--;
                     enemiesXround--;
                     timeSpawn = timeBetweenEnemies;
-                    
+
                 }
 
             }
@@ -115,10 +120,10 @@ public class EnemyManager : MonoBehaviour {
             {
                 Round++;
                 timeRest = timeBetweenRounds;
-                numNorm = 17+(2*(Round-5));
-                numFast = 2+(3 * (Round - 5));
-                numTank = 8 + Mathf.FloorToInt((Round - 5)/3);
-                numSpec = 15+(1 * (Round - 5));
+                numNorm = 17 + (2 * (Round - 5));
+                numFast = 2 + (3 * (Round - 5));
+                numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
+                numSpec = 15 + (1 * (Round - 5));
                 enemiesXround = numFast + numNorm + numTank + numSpec;
                 WaveText.text = "ROUND " + Round.ToString();
                 this.GetComponent<AudioSource>().Play();
@@ -126,4 +131,8 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
+    public void DropAmmo(Vector3 p)
+    {
+        Instantiate(ammoIcon, p, Quaternion.identity);
+    }
 }
