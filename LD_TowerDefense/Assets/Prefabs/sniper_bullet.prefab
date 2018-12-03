@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 20
+  damage: 30
   direction: {x: 0, y: 0, z: 0}
   penetrate: 1
   touchedEnemey: 0

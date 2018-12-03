@@ -36,10 +36,10 @@ public class EnemyManager : MonoBehaviour
         Time.timeScale = 1;
         timeRest = timeBetweenRounds;
         Round = 1;
-        numNorm = 17 + (2 * (Round - 5));
-        numFast = 15 + (3 * (Round - 5));
-        numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
-        numSpec = 14 + (1 * (Round - 5));
+        numNorm = 10 + (2 * (Round ));
+        numFast = 8 + (3 * (Round ));
+        numTank = 5 + Mathf.FloorToInt((Round) / 3);
+        numSpec = 7 + (1 * (Round));
         enemiesXround = numFast + numNorm + numTank + numSpec;
 
     }
@@ -120,10 +120,10 @@ public class EnemyManager : MonoBehaviour
             {
                 Round++;
                 timeRest = timeBetweenRounds;
-                numNorm = 17 + (2 * (Round - 5));
-                numFast = 2 + (3 * (Round - 5));
-                numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
-                numSpec = 15 + (1 * (Round - 5));
+                numNorm = 10 + (2 * (Round));
+                numFast = 8 + (3 * (Round));
+                numTank = 5 + Mathf.FloorToInt((Round) / 3);
+                numSpec = 7 + (1 * (Round));
                 enemiesXround = numFast + numNorm + numTank + numSpec;
                 WaveText.text = "ROUND " + Round.ToString();
                 this.GetComponent<AudioSource>().Play();

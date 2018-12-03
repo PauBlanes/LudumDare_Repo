@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3c5a96a2ac75b41ad3a102a928654d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  damage: 40
+  speed: 40
+  damage: 80
   direction: {x: 0, y: 0, z: 0}
   penetrate: 0
   touchedEnemey: 0
