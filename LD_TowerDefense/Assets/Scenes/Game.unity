@@ -2500,6 +2500,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212144819410806076, guid: 747516a777eae2f4da6f11cd72ab9118,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212144819410806076, guid: 747516a777eae2f4da6f11cd72ab9118,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 747516a777eae2f4da6f11cd72ab9118, type: 2}
   m_IsPrefabAsset: 0
@@ -10427,11 +10437,6 @@ Prefab:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 294355015}
-    - target: {fileID: 114343405661850676, guid: 7465ba01c7454934cb280c6306d35e26,
-        type: 2}
-      propertyPath: health
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7465ba01c7454934cb280c6306d35e26, type: 2}
   m_IsPrefabAsset: 0

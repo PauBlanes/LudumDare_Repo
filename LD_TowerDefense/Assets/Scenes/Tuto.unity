@@ -1258,7 +1258,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 649eb83a25866f741926434b76eb458c,
+      objectReference: {fileID: 21300000, guid: 301679499261fb3408e62a42668083f7,
         type: 3}
     - target: {fileID: 224654923624098476, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
@@ -1284,7 +1284,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 55ed7fb5edf2eb24782b93656e89ecab,
+      objectReference: {fileID: 21300000, guid: cc467d6e5ba608944b9d2a4b9232867e,
         type: 3}
     - target: {fileID: 224139147121875832, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
@@ -1370,19 +1370,19 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cb6312b88d0b785488171efe8e251b0a,
+      objectReference: {fileID: 21300000, guid: c1c195b9698650241959860c71841eb3,
         type: 3}
     - target: {fileID: 114281903615197194, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 58ffd24496c70e94caccc548a2f435ad,
+      objectReference: {fileID: 21300000, guid: d9180233977d35441b9cc2e9bb3d47b7,
         type: 3}
     - target: {fileID: 114381555325785508, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 97953e16915d74544a882c71e800eaf8,
+      objectReference: {fileID: 21300000, guid: 4d78ea0b110fc87439abbc2ddc2369c8,
         type: 3}
     - target: {fileID: 1161283735736452, guid: 0bbad590901b4884e86ae10c17bc5a3f, type: 2}
       propertyPath: m_IsActive
@@ -1887,6 +1887,19 @@ Prefab:
         type: 2}
       propertyPath: allWeapons.Array.data[3].fireRate
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212633627297396160, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917339463430632, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917339463430632, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216, type: 2}
