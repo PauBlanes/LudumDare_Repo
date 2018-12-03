@@ -208,6 +208,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
   visionCircle: {fileID: 0}
+  explosionGlow: {fileID: 0}
+  visionDecrease: 1
 --- !u!212 &212144819410806076
 SpriteRenderer:
   m_ObjectHideFlags: 1

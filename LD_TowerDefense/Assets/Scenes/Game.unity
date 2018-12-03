@@ -1512,6 +1512,16 @@ Prefab:
       propertyPath: ui_manager.removed.Array.data[3]
       value: 
       objectReference: {fileID: 50536627}
+    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
+        type: 2}
+      propertyPath: visionCircle
+      value: 
+      objectReference: {fileID: 1553715776}
+    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
+        type: 2}
+      propertyPath: explosionGlow
+      value: 
+      objectReference: {fileID: 647743832}
     - target: {fileID: 1635469230064076, guid: 747516a777eae2f4da6f11cd72ab9118, type: 2}
       propertyPath: m_Name
       value: Player (1)
@@ -1541,21 +1551,6 @@ Prefab:
       propertyPath: buttons.Array.data[3]
       value: 
       objectReference: {fileID: 1215907037}
-    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
-        type: 2}
-      propertyPath: visionDecrease
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
-        type: 2}
-      propertyPath: visionCircle
-      value: 
-      objectReference: {fileID: 1553715776}
-    - target: {fileID: 114865670453077062, guid: 747516a777eae2f4da6f11cd72ab9118,
-        type: 2}
-      propertyPath: explosionGlow
-      value: 
-      objectReference: {fileID: 647743832}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 747516a777eae2f4da6f11cd72ab9118, type: 2}
   m_IsPrefabAsset: 0
@@ -7771,12 +7766,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114222796127251636, guid: 0bbad590901b4884e86ae10c17bc5a3f,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2060436948}
-    - target: {fileID: 114467178765780304, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+    - target: {fileID: 114717485785528336, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7786,7 +7776,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2060436948}
-    - target: {fileID: 114717485785528336, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+    - target: {fileID: 114467178765780304, guid: 0bbad590901b4884e86ae10c17bc5a3f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2060436948}
+    - target: {fileID: 114222796127251636, guid: 0bbad590901b4884e86ae10c17bc5a3f,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
