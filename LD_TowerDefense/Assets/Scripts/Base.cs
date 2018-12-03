@@ -8,6 +8,7 @@ public class Base : MonoBehaviour {
 
     public float health=5;
     private float maxHealth;
+    private float currentHealth;
 
     public bool ammo, heal;
     public GameObject healText;
@@ -26,7 +27,8 @@ public class Base : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        maxHealth = health;        
+        maxHealth = health;
+        currentHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -69,10 +71,10 @@ public class Base : MonoBehaviour {
             {                
                 int wep = Random.Range(1, 4);
                 GameObject Base = GameObject.FindGameObjectWithTag("Base");
-                Base.GetComponent<Base>().health += 50;
+                Base.GetComponent<Base>().AddHealth(50);
                 if (healText != null)
                     StartCoroutine(ShowAndHide(healText, 0.75f));
-                if (Base.GetComponent<Base>().health > 500) { Base.GetComponent<Base>().health = 500; }
+                
                 time = cooldown;
             }
         }
@@ -85,6 +87,7 @@ public class Base : MonoBehaviour {
                 SceneManager.LoadScene(0);
             }
         }
+        
 
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -97,11 +100,10 @@ public class Base : MonoBehaviour {
 
     public void GetDamaged(float damage)
     {
+        currentHealth -= damage;
+        healthBar.GetComponent<Image>().fillAmount = currentHealth/ maxHealth;
         
-        health -= damage;
-        healthBar.GetComponent<Image>().fillAmount = health/maxHealth;
-
-        if (health <= 0)
+        if (currentHealth <= 0)
         {           
             if (ammo)
             {
@@ -144,6 +146,19 @@ public class Base : MonoBehaviour {
         g.SetActive(true);
         yield return new WaitForSeconds(time);
         g.SetActive(false);
+    }
+
+    public void AddHealth(int h)
+    {
+        currentHealth += health;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
+    }
+
+    public void SetHealth(int h)
+    {
+        currentHealth = health;
+        healthBar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
     }
 
 }
