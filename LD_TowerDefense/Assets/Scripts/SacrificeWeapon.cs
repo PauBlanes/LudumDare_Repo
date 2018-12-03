@@ -102,5 +102,5 @@ public class SacrificeWeapon : MonoBehaviour {
     {
         buttons[index].GetComponent<Button>().enabled = true;
         buttons[index].transform.GetChild(0).GetComponent<Image>().enabled = false;        
-    }
+    }   
 }
