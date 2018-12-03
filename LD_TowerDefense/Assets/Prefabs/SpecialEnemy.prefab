@@ -241,7 +241,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   Speed: 2
   Health: 20
-  Attack: 10
+  Attack: 3
   dir: {x: 0, y: 0, z: 0}
   imatges:
   - {fileID: 1654040811390772}
