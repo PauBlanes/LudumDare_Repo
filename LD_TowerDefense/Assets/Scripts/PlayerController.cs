@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -31,7 +32,12 @@ public class PlayerController : MonoBehaviour {
 
     //Sniper
     private bool blinded;
-    private float blindTime = 2f;
+    private float blindTime = 1f;
+
+    //Bomba nuclear
+    public GameObject visionCircle;
+    public GameObject explosionGlow;
+    public float visionDecrease;
 
     // Use this for initialization
     void Start () {
@@ -73,7 +79,13 @@ public class PlayerController : MonoBehaviour {
         foreach (Weapon w in unlockedWeapons)
         {
             ui_manager.UpdateScore(w);
-        }        
+        }
+
+        //Tirar la bomba nuclear
+        if (Input.GetMouseButtonDown(1) && SceneManager.GetActiveScene().name == "Game") 
+        {
+            NuclearBomb();
+        }
     }
 
     void Shoot()
@@ -255,6 +267,45 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void NuclearBomb()
+    {
+        if (visionCircle.transform.localScale.x - visionDecrease > 1.5f)
+        {
+            //Matar enemics
+            
+            StartCoroutine(FadeInAndOut(0.5f));            
+            
+        }       
+    }
+    IEnumerator FadeInAndOut(float aTime)
+    {
+        //Fade in
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(0.0f, 1.0f, t));
+            explosionGlow.GetComponent<SpriteRenderer>().color = newColor;
+            yield return null;
+        }        
+        //Fer petit el cercle
+        visionCircle.transform.localScale -= new Vector3(visionDecrease, visionDecrease, 0);
+        //Destruir enemigos
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
+            {
+                Destroy(e);
+            }
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyManager>().Round++;
+
+        yield return new WaitForSeconds(0.75f);
+
+        //Fade out
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / (aTime*2))
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(1.0f, 0.0f, t));
+            explosionGlow.GetComponent<SpriteRenderer>().color = newColor;
+            yield return null;
+        }
+    }
     /*bool Move()
     {
         //Rotations
