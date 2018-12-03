@@ -1443,6 +1443,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 223513109024615340, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114857867744346038, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
         type: 2}
       propertyPath: GameOverText
@@ -1578,16 +1583,6 @@ Prefab:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1102959667}
-    - target: {fileID: 82550226474587262, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82383299911210510, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6e0fd13bbcfec4eb0e1d37c4b15216, type: 2}
   m_IsPrefabAsset: 0
