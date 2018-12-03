@@ -120,6 +120,7 @@ public class EnemyManager : MonoBehaviour {
                 numSpec = 15+(1 * (Round - 5));
                 enemiesXround = numFast + numNorm + numTank + numSpec;
                 WaveText.text = "ROUND " + Round.ToString();
+                this.GetComponent<AudioSource>().Play();
             }
         }
     }
