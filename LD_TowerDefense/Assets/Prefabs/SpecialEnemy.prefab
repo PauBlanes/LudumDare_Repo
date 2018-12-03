@@ -244,9 +244,9 @@ MonoBehaviour:
   Attack: 10
   dir: {x: 0, y: 0, z: 0}
   imatges:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1654040811390772}
+  - {fileID: 1944088153625328}
+  - {fileID: 1503793437809590}
   Blood: {fileID: 1101472513608970, guid: 6c0afcf66c0825d49b37c49b40fd4e4c, type: 2}
   xp: 7
   Bullet: {fileID: 1756553528163776, guid: 8d585683401e05c4ca9ede33fcb8f125, type: 2}

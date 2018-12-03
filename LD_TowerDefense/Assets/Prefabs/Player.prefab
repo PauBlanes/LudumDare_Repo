@@ -126,9 +126,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  baseToRespawn:
-  - {fileID: 1983030778632332, guid: c033f669f24c91248acf109f05ed5491, type: 2}
-  - {fileID: 1104034436495992, guid: ce91d21a029116c4bb3e6714238be83f, type: 2}
+  choseSacrifice: 0
+  ammoImage: {fileID: 21300000, guid: 9e9f92cfdfbc59e4894fdffe6d990b49, type: 3}
+  healImage: {fileID: 21300000, guid: 2e99e7e8e0b486242bc477ce18ecf6f9, type: 3}
 --- !u!114 &114741040632531640
 MonoBehaviour:
   m_ObjectHideFlags: 1

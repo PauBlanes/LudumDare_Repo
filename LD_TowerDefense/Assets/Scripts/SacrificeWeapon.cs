@@ -14,6 +14,9 @@ public class SacrificeWeapon : MonoBehaviour {
 
     GameObject baseAttacked;
 
+    public Sprite ammoImage;
+    public Sprite healImage;
+
     // Use this for initialization
     void Start()
     {
@@ -44,7 +47,12 @@ public class SacrificeWeapon : MonoBehaviour {
         popup.SetActive(true);
 
         baseAttacked = b;
-        
+
+        if (b.GetComponent<Base>().ammo)
+            popup.GetComponent<Image>().sprite = ammoImage;
+        else if (b.GetComponent<Base>().heal)
+            popup.GetComponent<Image>().sprite = healImage;
+
     }
     public void EndSacrifice()
     {
