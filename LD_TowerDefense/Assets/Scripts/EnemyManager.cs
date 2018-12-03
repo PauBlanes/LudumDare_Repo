@@ -131,8 +131,5 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void DropAmmo(Vector3 p)
-    {
-        Instantiate(ammoIcon, p, Quaternion.identity);
-    }
+    
 }
