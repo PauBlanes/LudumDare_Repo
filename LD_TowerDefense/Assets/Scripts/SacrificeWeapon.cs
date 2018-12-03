@@ -8,16 +8,22 @@ public class SacrificeWeapon : MonoBehaviour {
     private GameObject popup;
 
     public List<GameObject> buttons = new List<GameObject>();
+    
+    public bool choseSacrifice;
 
-    public GameObject[] baseToRespawn;
-    private Vector3 posToRespawn;
-    private int indexToSpawn;
+    GameObject baseAttacked;
 
     // Use this for initialization
     void Start()
     {
         popup = GameObject.FindGameObjectWithTag("SacrificePopup");
         popup.SetActive(false);
+
+        foreach (GameObject b in buttons)
+        {
+            b.GetComponent<Button>().enabled = false;
+            b.transform.GetChild(0).GetComponent<Image>().enabled = true;
+        }
         
     }
 
@@ -29,23 +35,32 @@ public class SacrificeWeapon : MonoBehaviour {
             popup.SetActive(false);       
     }
 
-    public void StartSacrifice(Vector3 p2R, int baseToSpawn)
+    public void StartSacrifice(GameObject b)
     {
         Time.timeScale = 0;
         popup.SetActive(true);
 
-        posToRespawn = p2R; 
+        baseAttacked = b;
+        
     }
     public void EndSacrifice()
     {
         Time.timeScale = 1;
         popup.SetActive(false);
-        Instantiate(baseToRespawn[indexToSpawn], posToRespawn, Quaternion.identity);
+
+        baseAttacked.GetComponent<Base>().KillNearEnemies();
+
+        if (choseSacrifice)
+            baseAttacked.GetComponent<Base>().health = 300;
+        else
+            Destroy(baseAttacked);
+        
     }
 
     public void Choice(int weapon)
     {        
-        
+        choseSacrifice = true;  
+
         switch (weapon)
         {
             case 0:

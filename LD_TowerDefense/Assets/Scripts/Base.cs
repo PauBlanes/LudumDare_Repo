@@ -72,19 +72,32 @@ public class Base : MonoBehaviour {
         health -= damage;       
 
         if (health <= 0)
-        {
+        {           
             if (ammo)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(transform.position, 0);
-                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
+                
             }
             else if (heal)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(transform.position, 1);
-                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
+                
             }
             else
-                Debug.Log("GAME OVER");
+                Debug.Log("GAME OVER");            
+        }
+    }
+
+    public void KillNearEnemies()
+    {
+        float destroyRadius = 5;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            if ((enemy.transform.position - transform.position).magnitude < destroyRadius)
+            {
+                Destroy(enemy);
+            }
         }
     }
 
