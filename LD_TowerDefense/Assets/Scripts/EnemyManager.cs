@@ -11,8 +11,7 @@ public class EnemyManager : MonoBehaviour {
 
     public GameObject[] EnemyPrefabs;
 
-    public int Round=0;
-    public int wave = 0;
+    public int Round=1;
 
     public Text GameOverText;
     //NO TOCAR
@@ -21,7 +20,7 @@ public class EnemyManager : MonoBehaviour {
     float timeBetweenRounds=7;
     int enemyMultiplayer = 35;
 
-
+    public Text WaveText;
     //
     int numNorm, numFast, numTank, numSpec;
 
@@ -33,7 +32,6 @@ public class EnemyManager : MonoBehaviour {
 	void Start () {
         timeRest = timeBetweenRounds;
         Round = 1;
-        wave = 0;
         numNorm = 17 + (2 * (Round - 5));
         numFast = 15 + (3 * (Round - 5));
         numTank = 8 + Mathf.FloorToInt((Round - 5) / 3);
@@ -120,13 +118,13 @@ public class EnemyManager : MonoBehaviour {
             if (timeRest <= 0)
             {
                 Round++;
-                wave = 0;
                 timeRest = timeBetweenRounds;
                 numNorm = 17+(2*(Round-5));
                 numFast = 2+(3 * (Round - 5));
                 numTank = 8 + Mathf.FloorToInt((Round - 5)/3);
                 numSpec = 15+(1 * (Round - 5));
                 enemiesXround = numFast + numNorm + numTank + numSpec;
+                WaveText.text = "ROUND " + Round.ToString();
             }
         }
     }

@@ -83,8 +83,10 @@ public class Base : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<SacrificeWeapon>().StartSacrifice(this.gameObject);
                 
             }
-            else
-                Debug.Log("GAME OVER");            
+            else {
+                Debug.Log("GAME OVER");
+            }
+                           
         }
     }
 
