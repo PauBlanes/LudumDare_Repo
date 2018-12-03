@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour {
     public GameObject Blood;
     public int xp;
 
+    public GameObject ugh;
+    public GameObject coin;
+
     public GameObject Bullet;
 
     Vector3 targetPos;
@@ -114,6 +117,9 @@ public class Enemy : MonoBehaviour {
     public void GetDamaged (float dmg)
     {
         Health -= dmg;
+
+        Instantiate(ugh, transform.position, Quaternion.identity);
+
         if (Health <= 0) {
             int prov = Random.Range(0, 100);
             imatges[1].SetActive(false);
@@ -122,6 +128,7 @@ public class Enemy : MonoBehaviour {
             if (prov <= 20 
                 && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetUnlockedWeapons().Count > 1)
             {
+                Instantiate(coin, transform.position, Quaternion.identity);
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
                 int wep = Random.Range(1, Player.GetComponent<PlayerController>().GetUnlockedWeapons().Count);
                 switch (wep)
